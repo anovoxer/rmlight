@@ -1,0 +1,50 @@
+[
+	{
+		"id" : "1",
+		"url": "home",
+		"name" : "Dashboard",
+		"description" : "item 1 details",	
+		"timestamp" : "1349539521000",
+		"selected": true
+	},
+	{
+		"id" : "2",
+		"url": "projects",
+		"name" : "Projects",
+		"description" : "item 2 details",
+		"timestamp" : "1349651343000",
+		"selected": false		
+	},
+	{
+		"id" : "3",
+		"url": "candidates",
+		"name" : "Candidates",
+		"description" : "item 2 details",
+		"timestamp" : "1349651343000",
+		"selected": false		
+	},
+	{
+		"id" : "4",
+		"url": "management",
+		"name" : "Management",
+		"description" : "item 2 details",
+		"timestamp" : "1349651343000",
+		"selected": false		
+	},
+	{
+		"id" : "5",
+		"url": "analytics",
+		"name" : "Analytics",
+		"description" : "item 2 details",
+		"timestamp" : "1349651343000",
+		"selected": false
+	},
+	{
+		"id" : "6",
+		"url": "help",
+		"name" : "Help",
+		"description" : "item 2 details",
+		"timestamp" : "1349651343000",
+		"selected": false
+	}
+]

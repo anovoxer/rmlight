@@ -1,0 +1,15 @@
+﻿<div ng-controller="CandidateListCtrl">
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr><th></th><th>id</th><th>name</th></tr>
+        </thead>
+        <tr ng-repeat="candidate in list">
+            <td><input type="checkbox" ng-model="candidate.selected"></td>
+            <td>{{candidate.Id}}</td>
+            <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}}</a></td>
+        </tr>
+    </table>
+
+</div>

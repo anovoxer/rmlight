@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+    <!--[if lte IE 8]>
+    <script> 
+        window.myCustomTags = [ 'superman' ]; // optional
+    </script>
+    <script src="build/angular-ui-ieshiv.js"></script>
+    <![endif]-->
+
+<!--    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>-->
+
+    <link rel="stylesheet" href="content/foundation.css">
+    <link href="Content/toastr.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="Scripts/vendor/jquery.js"></script>
+    <script type="text/javascript" src="Scripts/vendor/custom.modernizr.js"></script>
+    <script type="text/javascript" src="Scripts/toastr.min.js"></script>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+
+    <script src="JS/app.js"></script>
+    <script src="JS/directives/tabs.js"></script>
+    <script src="JS/directives/filterbox.js"></script>
+
+    <script src="JS/directives/workflow.js"></script>
+    <script src="JS/directives/topnav-panel.js"></script>
+
+
+    
+
+    <script>
+        function MainDCController($scope) {
+            $scope.$on('$routeChangeStart', function (scope, next, current) {                
+            });
+            $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+                $("#maincontainer").hide().fadeIn();
+            });
+        }
+    </script>
+
+
+    <title>ReachMee lite v1.0</title>
+
+</head>
+<body>
+
+    <div ng-app="ReachmeeLightApp">
+
+        <div>
+            <topnavigation />
+        </div>
+
+        <section id="histMenu">
+            <div class="row">
+                <div class="columns large-6">
+                    <ul class="breadcrumbs">
+                        <li class="current"><a href="index.html">home</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="mainBox">
+        <div ng-controller="MainDCController" id="maincontainer">            
+
+                <div ng-view class="row">
+                </div>
+            
+        </div>
+        </section>
+
+
+        <footer id="footer">
+        </footer>
+
+
+    </div>
+
+</body>
+</html>

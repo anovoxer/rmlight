@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projects | ReachMee lite v1.0</title>
+    <link rel="stylesheet" href="scss/normalize.css">
+    <link rel="stylesheet" href="foundation.css">
+</head>
+<body>
+
+<header id="header">
+    <div class="contain-to-grid fixed">
+        <nav class="top-bar">
+            <ul class="title-area">
+                <li class="name">
+                    <h1><a href="index.html">ReachMee</a></h1>
+                </li>
+                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+            </ul>
+            <section class="top-bar-section">
+                <ul class="left">
+                    <li class="divider"></li>
+                    <li class="active"><a href="projects.html">Projects</a></li>
+                    <li><a href="candidates.html">Candidates</a></li>
+                    <li><a href="#">Management</a></li>
+                </ul>
+                <ul>
+                    <li class="has-form">
+                        <form id="search">
+                            <div class="row collapse">
+                                <div class="small-10 columns">
+                                    <input class="search" type="search">
+                                </div>
+                                <div class="small-2 columns">
+                                    <button class="button prefix" type="submit">Search</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li class="divider"></li>
+                    <li class="has-dropdown"><a href="#">Admin</a>
+                        <ul class="dropdown">
+                            <li><a href="#">Change password</a></li>
+                            <li><a href="#">Logout</a></li>
+                        </ul>
+
+                    </li>
+                </ul>
+            </section>
+        </nav>
+    </div>
+</header>
+<section id="histMenu">
+    <div class="row">
+        <div class="columns large-6">
+            <ul class="breadcrumbs">
+                <li><a href="index.html">home</a></li>
+                <li class="current"><a href="projects.html">projects</a></li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="funcMenu">
+    <div class="row">
+        <div class="columns large-2">
+            <a class="button tiny large-12" href="#">Add new</a>
+        </div>
+
+        <div class="columns large-6">
+
+        </div>
+
+        <div class="columns large-2">
+
+        </div>
+    </div>
+</section>
+
+<section id="mainBox">
+    <div class="row">
+        <div class="columns large-2 sideMenu">
+            <ul class="side-nav">
+                <li class="divider"></li>
+                <li class="active"><a href="#">My projects</a></li>
+                <li><a href="#">All projects</a></li>
+                <li><a href="#">Favorites</a></li>
+                <li><a href="#">My own list</a></li>
+            </ul>
+        </div>
+        <div class="columns large-10">
+            <table class="mainTable table">
+                <thead>
+                <tr>
+                    <th class="cellCheckBox"><input type="checkbox"></th>
+                    <th class="cellId">Id</th>
+                    <th class="cellName">Name</th>
+                    <th class="cellNumber">Published</th>
+                    <th class="cellNumber">Candidates</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td class="cellCheckBox"><input type="checkbox"></td>
+                    <td class="cellId">1201</td>
+                    <td class="cellName"><a href="project.html">QA Enginier</a></td>
+                    <td class="cellNumber"><a href="#">3</a></td>
+                    <td class="cellNumber"><a href="candidates.html">10</a></td>
+                </tr>
+                <tr>
+                    <td class="cellCheckBox"><input type="checkbox"></td>
+                    <td class="cellId">1201</td>
+                    <td class="cellName"><a href="project.html">Top sales manager (New-York & LA)</a></td>
+                    <td class="cellNumber"><a href="#">3</a></td>
+                    <td class="cellNumber"><a href="candidates.html">10</a></td>
+                </tr>
+                <tr class="selected">
+                    <td class="cellCheckBox"><input type="checkbox" checked></td>
+                    <td class="cellId">1201</td>
+                    <td class="cellName"><a href="project.html">Monkey - Monkey - Monkey</a></td>
+                    <td class="cellNumber"><a href="#">3</a></td>
+                    <td class="cellNumber"><a href="candidates.html">10</a></td>
+                </tr>
+                <tr class="rowChecked">
+                    <td class="cellCheckBox"><input type="checkbox"></td>
+                    <td class="cellId">1201</td>
+                    <td class="cellName"><a href="project.html">Just to fill out this column</a></td>
+                    <td class="cellNumber"><a href="#">3</a></td>
+                    <td class="cellNumber"><a href="candidates.html">10</a></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<footer id="footer">
+</footer>
+</body>
+</html>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=(LocalDb)\v11.0;Initial Catalog=aspnet-RMLight-20130307110654;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-RMLight-20130307110654.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ReachmeeLight\\RMLight\\RMLight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="ProjectContext-Web.config Connection String" description="ProjectContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=ProjectContext-20130307114832; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|ProjectContext-20130307114832.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ReachmeeLight\\RMLight\\RMLight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ProjectContext']/@connectionString" />
+  </parameter>
+  <parameter name="RMLightContext-Web.config Connection String" description="RMLightContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=RMLightContext-20130313101454; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|RMLightContext-20130313101454.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ReachmeeLight\\RMLight\\RMLight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RMLightContext']/@connectionString" />
+  </parameter>
+  <parameter name="CandidateContext-Web.config Connection String" description="CandidateContext Connection String used in web.config by the application to access the database." defaultValue="Data Source=(localdb)\v11.0; Initial Catalog=CandidateContext-20130313101621; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|CandidateContext-20130313101621.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ReachmeeLight\\RMLight\\RMLight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='CandidateContext']/@connectionString" />
+  </parameter>
+  <parameter name="RMLightContext_DatabasePublish-Web.config Connection String" description="RMLightContext_DatabasePublish Connection String used in web.config by the application to access the database." defaultValue="RMLightContext_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\ReachmeeLight\\RMLight\\RMLight\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='RMLightContext_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

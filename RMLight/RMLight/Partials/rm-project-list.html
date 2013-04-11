@@ -1,0 +1,44 @@
+﻿<section id="funcMenu">
+    <div class="row">
+        <div class="columns large-2">
+            <a class="button tiny large-12" href="#/projects/0">Add new</a>
+        </div>
+
+        <div class="columns large-6">
+
+        </div>
+
+        <div class="columns large-2">
+
+        </div>
+    </div>
+</section>
+
+
+<div class="row">
+
+    <filterbox apply="applyfilter(filtermessage)"></filterbox>
+
+    <div class="columns large-10">
+        <table class="mainTable table">
+            <thead>
+                <tr>
+                    <th ng-repeat="column in grid.columns" ng-class="column.Type">{{column.Name}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="project in list" id="item_{{project.Id}}">
+                    <td class="cellCheckBox">
+                        <input type="checkbox" ng-model="project.selected"></td>
+                    <td class="cellId">{{project.Id}}</td>
+                    <td class="cellName"><a href="#/projects/{{project.Id}}">{{project.Name}}</a></td>
+                    <td class="cellNumber"><a href="#">{{0}}</a></td>
+                    <td class="cellNumber"><a href="#/project/candidates/{{project.Id}}">{{3}}</a></td>
+                    <!--<td><a ng-click="delete()"><i class="icon-remove"></i></a></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

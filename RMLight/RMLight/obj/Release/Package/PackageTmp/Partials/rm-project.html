@@ -1,0 +1,36 @@
+﻿<div class="row">
+    
+        <tabs>
+        <!-- Dashboard  -->
+        <pane title="Dashboard" visible="tabs.dash.v" ro="tabs.dash.ro" selected="tabs.dash.a">
+
+            Dashboard content
+
+        </pane>
+
+        <!-- Info  -->
+        <pane title="Info" visible="true" visible="tabs.proj.v" ro="tabs.proj.ro" selected="tabs.proj.a">
+        
+            <div ng-controller="ProjectInfoCtrl">
+                <div ng-include src="'partials/rm-project-info.html'" />
+            </div>
+
+        </pane>
+
+        <!-- Procedure  -->
+        <pane title="Procedure" visible="tabs.proc.v" ro="tabs.proc.ro" selected="tabs.proc.a">
+        
+            Procedure content
+
+        </pane>
+
+        <!-- Procedure  -->
+        <pane title="Publishing" visible="tabs.publ.v" ro="tabs.publ.ro" selected="tabs.publ.a">
+        
+            Publishing content
+
+        </pane>
+
+        </tabs>
+
+</div>

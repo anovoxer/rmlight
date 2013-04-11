@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+    <!--[if lte IE 8]>
+    <script> 
+        window.myCustomTags = [ 'superman' ]; // optional
+    </script>
+    <script src="build/angular-ui-ieshiv.js"></script>
+    <![endif]-->
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="JS/app.js"></script>
+    <script src="JS/directives/tabs.js"></script>
+
+    <script src="JS/directives/workflow.js"></script>
+    <script src="JS/directives/topnav-panel.js"></script>
+
+
+
+    <link rel="stylesheet" type="text/css" href="Content/bootstrap.css" />
+    <style type="text/css">
+        .hide {
+            display: none;
+            visibility:hidden;
+        }
+    </style>
+
+    <script>
+        function MainDCController($scope) {
+            $scope.$on('$routeChangeStart', function (scope, next, current) {
+            });
+            $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+                $("#maincontainer").hide().fadeIn();
+            });
+        }
+    </script>
+
+    <title>ReachMee light</title>
+</head>
+<body style="margin:20px;">
+
+    <div ng-app="ReachmeeLightApp">
+
+        <div><topnavigation /></div><br /><br />
+
+        <br /><br />
+
+        <div ng-controller="MenuCtrl" class="span2">
+            <mainmenu />
+        </div>
+
+        <div ng-controller="MainDCController" id="maincontainer">
+            <div ng-view class="span7">
+
+            </div>
+        </div>
+
+        <workflow />
+
+    </div>
+</body>
+</html>

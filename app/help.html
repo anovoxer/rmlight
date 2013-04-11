@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="reachmeelight">
+<head>
+  <meta charset="utf-8">
+  <title>Google Phone Gallery</title>
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script src="lib/angular/angular.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/services.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+</head>
+<body>
+
+
+<div>
+	<div ng-include src="'partials/p-header.html'" ng-controller="MainHeaderCtrl" />
+</div>
+
+<div class="container" style="padding-top:50px">
+	<div class="container-fluid ">
+		<div class="row-fluid">
+		
+			<div class="span2">
+			<!--Sidebar content-->
+				<div ng-include src="'partials/p-menu.html'" ng-controller="MenuCtrl" />
+
+			</div>
+			
+			<div class="span10">
+			<!--Body content-->
+				<div ng-view>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+</body>
+</html>
