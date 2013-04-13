@@ -29,12 +29,12 @@
                    </form>
                 </li>
             </ul>
-            <ul class="right">
+            <ul class="right" ng-controller="SecurityCtrl">
                 <li class="divider"></li>
                 <li class="has-dropdown"><a href="#">Admin</a>
                     <ul class="dropdown">
                         <li><a href="#">Change password</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="#" ng-click="logout();" >Logout</a></li>
                     </ul>
 
                 </li>

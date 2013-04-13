@@ -1,7 +1,7 @@
 ﻿'use strict'
 
 //var app = angular.module("ReachmeeLightApp", ['ngResource', 'components']);
-var app = angular.module("ReachmeeLightApp", ['ngResource']);
+var app = angular.module("ReachmeeLightApp", ['ngResource', 'ui']);
 
 app.constant('configuration', {
     ITEMS_URL: '../js/items.json'
@@ -19,6 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
           when('/management', { templateUrl: 'partials/rm-management.html', controller: null }).
           when('/analytics', { templateUrl: 'partials/rm-analytics.html', controller: null }).
           when('/help', { templateUrl: 'partials/rm-help.html', controller: null }).
+          when('/hi').
           otherwise({ redirectTo: '/home' });
   }]);
 
@@ -39,11 +40,17 @@ app.factory('ProjectDATA', function ($resource) {
     return $resource('/api/project/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
 
-
 app.factory('WorkflowDATA', function ($resource) {
     return $resource('/api/workflow/:id', { id: '@id' });
 });
 
+app.factory('CustomerDATA', function ($resource) {
+    return $resource('/api/customer/:id', { id: '@id' }, { check: { method: 'GET', isArray: false } });
+});
+
+app.factory('SecurityDATA', function ($resource) {
+    return $resource('/api/security/:id', { id: '@id' }, { logout: { method: 'GET', params: { action: 'logout'} } });
+});
 
 app.controller("MenuCtrl", function ($scope, Menu) {
     $scope.items = Menu.query();
@@ -59,6 +66,10 @@ app.controller("CandidateListCtrl", function ($scope, CandidateDATA) {
 //app.controller("CandidateInfoCtrl", function ($scope, $location) {
 //    console.log($location);
 //});
+
+function SecurityCtrl($scope, $route, $routeParams, SecurityDATA) {
+    $scope.logout = function () { alert("here i am"); SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
+};
 
 function CandidateInfoCtrl($scope, $route, $routeParams, CandidateDATA) {
     var id = $routeParams.candidateid;

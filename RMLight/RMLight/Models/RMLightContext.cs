@@ -22,5 +22,7 @@ namespace RMLight.Models
         public DbSet<Candidate> Candidates { get; set; }
 
         public DbSet<Workflow> Workflows { get; set; }
+
+        public DbSet<Customer> Customers { get; set; }
     }
 }
