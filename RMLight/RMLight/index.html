@@ -62,39 +62,29 @@
     <!-- TODO: somewhere in app.js we need to check after first landing on index.html is we are authorized, otherwise redirect us to */hi.html -->
 
 </head>
-<body>
-
-    <div ng-app="ReachmeeLightApp">
-
-        <div>
-            <topnavigation />
-        </div>
+<body ng-app="ReachmeeLightApp">
+        <header id="header">
+            <div class="contain-to-grid fixed">
+                <topnavigation />
+            </div>
+        </header>
 
         <section id="histMenu">
             <div class="row">
-                <div class="columns large-6">
+                <div class="columns large-12">
                     <ul class="breadcrumbs">
-                        <li class="current"><a href="index.html">home</a></li>
+                        <li><a href="index.html">home</a></li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="mainBox">
-        <div ng-controller="MainDCController" id="maincontainer">            
-
-                <div ng-view class="row">
-                </div>
-            
-        </div>
+        <section id="mainBox" ng-controller="MainDCController">
+            <div ng-view></div>
         </section>
 
 
         <footer id="footer">
         </footer>
-
-
-    </div>
-
 </body>
 </html>

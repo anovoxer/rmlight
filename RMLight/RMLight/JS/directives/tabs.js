@@ -30,7 +30,7 @@
                             '</li>' +
                         '</ul>' +            
                     '</div>' +
-                    '<div class="columns large-10"><div class="navPan" ng-transclude></div></div>' +
+                    '<div class="columns large-10 cntrWrapper"><hr><div class="navPan" ng-transclude></div></div>' +
                     '</div>',
 
           template_old:
