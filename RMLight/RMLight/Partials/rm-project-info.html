@@ -1,69 +1,81 @@
-﻿<div class="span6">
+﻿<div class="row" id="funcMenu">
+
+    <div class="columns large-2">
+        <projectmenu />
+        <!-- template located under: /partials/ui-elements/t-menu-project -->
+    </div>
+
+    <div class="columns large-10 cntrWrapper">
+
+        <div class="span6" ng-controller="ProjectInfoCtrl">
 
 
-    <form class="custom">
-        <fieldset>
-            <legend>Basic</legend>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectname" class="right inline">Project name:</label>
-                </div>
-                <div class="columns large-6">
-                    <input type="text" id="projectname" name="projectname" ng-model="model.Name" placeholder="Project name...">
-                </div>
-                <div class="columns large-4"></div>
-            </div>
+            <form class="custom">
+                <fieldset>
+                    <legend>Basic</legend>
+                    <div class="row">
+                        <div class="columns large-3">
+                            <label for="projectname" class="right inline">Project name:</label>
+                        </div>
+                        <div class="columns large-6">
+                            <input type="text" id="projectname" name="projectname" ng-model="model.Name" placeholder="Project name...">
+                        </div>
+                        <div class="columns large-4"></div>
+                    </div>
 
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projecttitle" class="right inline">Project title:</label>
-                </div>
-                <div class="columns large-6">
-                    <input type="text" id="projecttitle" name="projecttitle" ng-model="model.Header" placeholder="Project title...">
-                </div>
-                <div class="columns large-4"></div>
-            </div>
+                    <div class="row">
+                        <div class="columns large-3">
+                            <label for="projecttitle" class="right inline">Project title:</label>
+                        </div>
+                        <div class="columns large-6">
+                            <input type="text" id="projecttitle" name="projecttitle" ng-model="model.Header" placeholder="Project title...">
+                        </div>
+                        <div class="columns large-4"></div>
+                    </div>
 
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectdesc" class="right inline">Project description:</label>
-                </div>
-                <div class="columns large-6">
-                    <textarea name="projectdesc" id="projectdesc" rows="10" ng-model="model.JobDescription" placeholder="Project description"></textarea>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Classification</legend>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectarea" class="right inline">Area:</label>
-                </div>
-                <div class="columns large-6">
-                    <select name="projectarea" id="projectarea" class="small" ng-model="model.Area">
-                        <option disabled selected>Select area...</option>
-                        <option value="1">test 1</option>
-                        <option value="2">test 2</option>
-                    </select>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectcat" class="right inline">Category:</label>
-                </div>
-                <div class="columns large-6">
-                    <select name="projectcat" id="projectcat" class="medium" ng-model="model.Category">
-                        <option disabled selected>Select category...</option>
-                        <option value="1">test 1</option>
-                        <option value="2">test 2</option>
-                    </select>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-        </fieldset>
-        <button type="submit" class="button small"  ng-click="Save()">Save</button>
-    </form>
+                    <div class="row">
+                        <div class="columns large-3">
+                            <label for="projectdesc" class="right inline">Project description:</label>
+                        </div>
+                        <div class="columns large-6">
+                            <textarea name="projectdesc" id="projectdesc" rows="10" ng-model="model.JobDescription" placeholder="Project description"></textarea>
+                        </div>
+                        <div class="columns large-4"></div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Classification</legend>
+                    <div class="row">
+                        <div class="columns large-3">
+                            <label for="projectarea" class="right inline">Area:</label>
+                        </div>
+                        <div class="columns large-6">
+                            <select name="projectarea" id="projectarea" class="small" ng-model="model.Area">
+                                <option disabled selected>Select area...</option>
+                                <option value="1">test 1</option>
+                                <option value="2">test 2</option>
+                            </select>
+                        </div>
+                        <div class="columns large-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="columns large-3">
+                            <label for="projectcat" class="right inline">Category:</label>
+                        </div>
+                        <div class="columns large-6">
+                            <select name="projectcat" id="projectcat" class="medium" ng-model="model.Category">
+                                <option disabled selected>Select category...</option>
+                                <option value="1">test 1</option>
+                                <option value="2">test 2</option>
+                            </select>
+                        </div>
+                        <div class="columns large-4"></div>
+                    </div>
+                </fieldset>
+                <button type="submit" class="button small" ng-click="Save()">Save</button>
+            </form>
 
+        </div>
+
+    </div>
 </div>

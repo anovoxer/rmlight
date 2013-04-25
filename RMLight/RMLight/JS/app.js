@@ -10,8 +10,14 @@ app.constant('configuration', {
 app.config(['$routeProvider', function ($routeProvider) {
       $routeProvider.
           when('/home', { templateUrl: 'partials/rm-dashboard.html', controller: null }).
+
           when('/projects/:projectid', { templateUrl: 'partials/rm-project.html', controller: ProjectSupervisor }).
           when('/projects', { templateUrl: 'partials/rm-project-list.html', controller: ProjectListCtrl }).
+          when('/projects/dashboard/:projectid', { templateUrl: 'partials/rm-project-dashboard.html', controller: null }).
+          when('/projects/info/:projectid', { templateUrl: 'partials/rm-project-info.html', controller: null }).
+          when('/projects/procedure/:projectid', { templateUrl: 'partials/rm-project-procedure.html', controller: null }).
+          when('/projects/publishing/:projectid', { templateUrl: 'partials/rm-project-publishing.html', controller: null }).
+
           //when('/project/create', { templateUrl: 'partials/rm-project.html',  param:{projectid:1}, controller: ProjectCreateCtrl }).
           when('/candidates', { templateUrl: 'partials/rm-candidates.html', controller: null }).
           when('/candidates/:candidateid', { templateUrl: 'partials/rm-candidate-info.html', controller: CandidateInfoCtrl }).
