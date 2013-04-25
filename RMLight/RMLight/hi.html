@@ -90,21 +90,41 @@
     <script>
         function LoginPageCtrl($scope, CustomerDATA, ProjectDATA) {
 
+            $scope.$on('$routeChangeStart', function (scope, next, current) {
+            });
+            $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+                $("#maincontainer").hide().fadeIn();
+            });
+        }
+    </script>
+
+    <script>
+        function LoginUserCtrl($scope, CustomerDATA) {
+            $scope.loginmodel = {
+                Password: '',
+                Login: ''
+            };
+            $scope.Login = function () {
+                var result = CustomerDATA.get($scope.loginmodel, function (r) {
+                    if (r.Result) { window.location = "/index.html" };
+                });
+            };
+        }
+    </script>
+
+    <script>
+        function CreateCustomerCtrl($scope, CustomerDATA, $q) {
+
             $scope.model = {
                 Password: '',
                 Email: '',
                 Name: ''
             };
 
-            $scope.loginmodel =  {
-                Password: '',
-                Login: ''
-            };
-
             $scope.confirmpassword = '';
-            $scope.Validation = 
+            $scope.Validation =
             {
-                nameinuse: true        
+                nameinuse: true
             };
 
             $scope.checkname = function (name) {
@@ -114,26 +134,15 @@
                 return true;
             };
 
-            $scope.Login = function () {
-                var result = CustomerDATA.get($scope.loginmodel, function (r) {                   
-                    if (r.Result) { window.location = "/index.html" };
-                });
-                //console.log(result);
-            };
-
             $scope.Create = function () {
-                if (!$scope.form.$valid) { return; }
+
+                console.log($scope.form);
+
+                if (!$scope.form.$valid || $scope.Validation.nameinuse) { return; }
 
                 CustomerDATA.save($scope.model, function (info) {
                 });
             };
-
-
-            $scope.$on('$routeChangeStart', function (scope, next, current) {
-            });
-            $scope.$on("$routeChangeSuccess", function (scope, next, current) {
-                $("#maincontainer").hide().fadeIn();
-            });
         }
     </script>
 
@@ -157,11 +166,11 @@
 
                 <!-- Example row of columns -->
                 <div class="row">
-                    <div class="span4">
+                    <div class="span4" ng-controller="CreateCustomerCtrl">
 
                       <form class="form-signin" name="form">
                         <h2 class="form-signin-heading">Create company</h2>
-                        <input type="text" class="input-block-level" required placeholder="Company name" ng-model-onblur ng-model="model.Name" ui-validate="'checkname($value) && Validation.nameinuse'">
+                        <input type="text" class="input-block-level" required placeholder="Company name" ng-model-onblur ng-model="model.Name" ui-validate="'checkname($value)'">
                         <div><span class="text-error" ng-show='model.Name != ""  && Validation.nameinuse'>Name in use!</span></div>
                           {{ Validation.nameinuse + model.Name }}
                         <input type="text" class="input-block-level" required placeholder="Email address" ng-model="model.Email">
@@ -173,9 +182,9 @@
                       </form>
 
                     </div>
-                    <div class="span4">
+                    <div class="span4" ng-controller="LoginUserCtrl">
 
-                      <form class="form-signin">
+                      <form class="form-signin" name="formsignin">
                         <h2 class="form-signin-heading">Sign in</h2>
                         <input type="text" class="input-block-level" required placeholder="Email address" ng-model="loginmodel.Login">
                         <input type="password" class="input-block-level" required placeholder="Password" ng-model="loginmodel.Password">

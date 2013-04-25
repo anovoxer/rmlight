@@ -84,6 +84,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -176,6 +177,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\WorkflowController.cs" />
     <Compile Include="Global.asax.cs">
@@ -187,6 +189,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Project.cs" />
     <Compile Include="Models\RMLightContext.cs" />
@@ -199,6 +202,10 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome-ie7.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fontawesome-webfont.svg" />
     <Content Include="Content\foundation.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
@@ -257,6 +264,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.tabs.min.css" />
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Content\toastr.min.css" />
+    <Content Include="admin.html" />
     <Content Include="hi.html" />
     <Content Include="index_old.html" />
     <Content Include="favicon.ico" />
@@ -266,11 +274,13 @@
     <Content Include="JS\controllers\workflow.js" />
     <Content Include="JS\controllers\ctrl2.js" />
     <Content Include="JS\controllers\ctrl1.js" />
+    <Content Include="JS\admin-app.js" />
     <Content Include="JS\directives\filterbox.js" />
     <Content Include="JS\directives\topnav-panel.js" />
     <Content Include="JS\directives\workflow.js" />
     <Content Include="JS\directives\tabs.js" />
     <Content Include="MSBuild\doit.xml" />
+    <Content Include="Partials\admin\admin-users-list.html" />
     <Content Include="Partials\rm-candidate-edit.html" />
     <Content Include="Partials\rm-project-list.html" />
     <Content Include="Partials\rm-project-info.html" />
@@ -473,6 +483,10 @@
     <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="JS\items.json" />
+    <Content Include="Content\fontawesome-webfont.eot" />
+    <Content Include="Content\fontawesome-webfont.ttf" />
+    <Content Include="Content\fontawesome-webfont.woff" />
+    <Content Include="Content\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Anovoxer-6.hosting.parking.ru - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\anovoxer-server.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />

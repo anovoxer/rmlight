@@ -39,7 +39,8 @@ namespace RMLight.Controllers
 
         public CheckResult GetCustomer(string login, string password)
         {
-            Customer c = db.Customers.SingleOrDefault(customer => customer.Email == login && password == "123");
+            //Customer c = db.Customers.SingleOrDefault(customer => customer.Email == login && password == "123");
+            User c = db.Users.SingleOrDefault(user => user.Email == login && password == user.Password);
             CheckResult cr = new CheckResult();
 
             if (c != null)
@@ -98,11 +99,20 @@ namespace RMLight.Controllers
         // POST api/Customer
         public HttpResponseMessage PostCustomer(Customer customer)
         {
+            User user = new User() { Email = customer.Email, Password = customer.Password, FirstName = customer.Name };
+
             if (ModelState.IsValid)
             {
-                db.Customers.Add(customer);
-                db.SaveChanges();
+                using (var ts = new System.Transactions.TransactionScope())
+                {
+                    db.Customers.Add(customer);
+                    db.SaveChanges();
 
+                    db.Users.Add(user);
+                    db.SaveChanges();
+
+                    ts.Complete();
+                }
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, customer);
                 response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = customer.Id }));
                 return response;
