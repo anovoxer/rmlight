@@ -22,6 +22,16 @@ namespace RMLight.Controllers
         //    return db.Projects.AsEnumerable();
         //}
 
+        public Object GetProjectsCount(bool returncount, string q = null, string sort = null, bool desc = false, int? limit = null, int offset = 0)
+        {
+            var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<Project>();
+
+            IQueryable<Project> items = list;//string.IsNullOrEmpty(sort) ? list.OrderBy(o => o.Id) : list.OrderBy(String.Format("it.{0} {1}", sort, desc ? "DESC" : "ASC"));
+            if (!string.IsNullOrEmpty(q) && q != "undefined") items = items.Where(t => t.Name.Contains(q) || t.JobDescription.Contains(q) || t.Header.Contains(q));
+
+            return new { Count = Math.Ceiling(items.Count() / ((decimal)(limit ?? 100))) };
+        }
+
         public IEnumerable<Project> GetTodoItems(string q = null, string sort = null, bool desc = false, int? limit = null, int offset = 0)
         {
             var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<Project>();

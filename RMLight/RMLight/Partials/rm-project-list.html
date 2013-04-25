@@ -5,13 +5,23 @@
 
     <div class="columns large-7">
         <ul class="button-group">
-            <li><a class="small button secondary disabled" href="#"><i class="icon-cogs"></i></a></li>
-            <li><a class="small button secondary disabled" href="#"><i class="icon-share"></i> Move to</a></li>
-            <li><a class="small button secondary disabled" href="#"><i class="icon-lock"></i> Lock</a></li>
+            <li><a class="small button secondary" ng-class="{disabled: !fmenu.func.active}" ng-click="fmenu.func.click();"><i class="icon-cogs"></i></a></li>
+            <li><a class="small button secondary" ng-class="{disabled: !fmenu.move.active}" ng-click="fmenu.move.click();"><i class="icon-share"></i> Move to</a></li>
+            <li><a class="small button secondary" ng-class="{disabled: !fmenu.lock.active}" ng-click="fmenu.lock.click();"><i class="icon-lock"></i> Lock</a></li>
         </ul>
     </div>
 
-    <div class="columns large-3">
+
+    <!-- TODO: 2Yaro: if you need change markup for paging, tell me, i'll do something for it. right now it is included into ui-bootstrap-tpls-....*.js. You still can change attributes in this tag. 
+    Or play with css to improve its outfit. Or call me. Or come to me with Wiskey :D -->
+    <pagination on-select-page="setPage" num-pages="pagesCount" current-page="currentPage" class="pagination-small" first-text="&laquo;" last-text="&raquo;" max-size="5" boundary-links="true" direction-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+
+    <!-- TODO: 2Yaro: just for debug. You could remove it: -->
+    pages: {{ pagesCount }}
+
+    <!-- TODO: 2Yaro: old markup. You could remove it: -->
+
+<!--    <div class="columns large-3">
         <ul class="pagination">
             <li class="arrow unavailable"><a href="">&laquo;</a></li>
             <li class="current"><a href="">1</a></li>
@@ -20,7 +30,7 @@
             <li><a href="">43</a></li>
             <li class="arrow"><a href="">&raquo;</a></li>
         </ul>
-    </div>
+    </div>-->
 </div>
 
 <div class="row">
@@ -37,7 +47,7 @@
             <tbody>
                 <tr ng-repeat="project in list" id="item_{{project.Id}}">
                     <td class="cellCheckBox">
-                        <input type="checkbox" ng-model="project.selected"></td>
+                        <input type="checkbox" ng-model="project.selected" ng-click="fmenu.init();"></td>
                     <td class="cellId">{{project.Id}}</td>
                     <td class="cellName"><a href="#/projects/{{project.Id}}">{{project.Name}}</a></td>
                     <td class="cellNumber"><a href="#">{{0}}</a></td>

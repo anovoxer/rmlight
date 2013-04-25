@@ -275,6 +275,7 @@
     <Content Include="JS\controllers\ctrl2.js" />
     <Content Include="JS\controllers\ctrl1.js" />
     <Content Include="JS\admin-app.js" />
+    <Content Include="JS\directives\activemenu.js" />
     <Content Include="JS\directives\filterbox.js" />
     <Content Include="JS\directives\topnav-panel.js" />
     <Content Include="JS\directives\workflow.js" />
@@ -509,6 +510,7 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\toastr.min.js" />
+    <Content Include="Scripts\ui-bootstrap-tpls-0.2.0.min.js" />
     <Content Include="Scripts\vendor\custom.modernizr.js" />
     <Content Include="Scripts\vendor\jquery.js" />
     <Content Include="Scripts\vendor\zepto.js" />

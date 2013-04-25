@@ -1,5 +1,5 @@
 ﻿//angular.module('components', []).
-  app.directive('tabs', function () {
+  app.directive('tabs1', function () {
       return {
           restrict: 'E',
           transclude: true,
@@ -45,7 +45,7 @@
           replace: true
       };
   }).
-  directive('pane', function () {
+  directive('pane1', function () {
       return {
           require: '^tabs',
           restrict: 'E',
