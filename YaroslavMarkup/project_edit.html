@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Project</title>
+    <link rel="stylesheet" href="less/bootstrap.css">
+</head>
+<body>
+<header id="header">
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">Reachmee</a>
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Candidates</a></li>
+                    <li><a href="#">Management</a></li>
+                    <li class="divider-vertical"></li>
+                </ul>
+                <form class="navbar-form pull-left">
+                    <div class="input-append">
+                        <input type="text" class="span4">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Admin<b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>
+<section id="histMenu" class="container">
+    <div class="row">
+        <div class="span8">
+            <ul class="breadcrumb">
+                <li><a href="">home</a> <span class="divider">/</span></li>
+                <li><a href="">projects</a> <span class="divider">/</span></li>
+                <li><a href="">QA Enginier</a> <span class="divider">/</span></li>
+                <li class="active">Info</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section id="funcMenu" class="container">
+    <div class="row">
+        <div class="span2"></div>
+        <div class="span7">
+            <div class="btn-group">
+                <button class="btn"><i class="icon-cogs"></i></button>
+                <button class="btn"><i class="icon-plus"></i> Candidate</button>
+                <button class="btn"><i class="icon-lock"></i> Lock</button>
+                <button class="btn"><i class="icon-trash"></i> Remove</button>
+            </div>
+        </div>
+        <div class="span3">
+
+        </div>
+    </div>
+</section>
+<section id="mainBox" class="container">
+    <div class="row">
+        <div class="span2 sideMenu">
+            <ul class="nav nav-side">
+                <li><a href="#">Dashboard</a></li>
+                <li class="divider"></li>
+                <li class="active"><a href="#">Info</a></li>
+                <li><a href="#">Process</a></li>
+                <li><a href="#">Publishing</a></li>
+                <li class="nav-header">Candidates</li>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Big boobs</a></li>
+            </ul>
+        </div>
+
+        <div class="span10">
+            <h2 class="projectTitle"><input type="text" name="project_name" class="span6 projectField" value="QA Enginier"></h2>
+            <div class="row">
+                <div class="span6 projectData">
+                    <form>
+                    <h3>Basic data</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <input type="text" name="project_name" id="project_name" class="span6 projectField" value="Talented QA Enginier with passion to work">
+                            <small> - job title. This is public field</small>
+                        </li>
+                        <li>
+                            <textarea class="span6 projectField" name="project_desc" id="project_desc" rows="4"></textarea>
+                            <small> - job description. Few words about current project</small>
+                        </li>
+                    </ul>
+
+                    <h3>Specialization</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <select class="span4 projectField" name="project_area" id="project_area">
+                                <option disabled>Select...</option>
+                                <option selected>IT area</option>
+                            </select>
+                            <small> - area. Specify area for project</small>
+                        </li>
+                        <li>
+                            <select class="span4 projectField" name="project_field" id="project_field">
+                                <option disabled>Select...</option>
+                                <option selected>Head office workers</option>
+                            </select>
+                            <small> - category</small>
+                        </li>
+                    </ul>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="button" class="btn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="span4">
+                    <div class="infoBox">
+                        <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
+                        <dl class="dl-horizontal">
+                            <dt>status:</dt>
+                            <dd>open</dd>
+                            <dt>created:</dt>
+                            <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                            <dt>updated:</dt>
+                            <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
