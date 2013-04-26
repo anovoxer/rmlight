@@ -1,71 +1,143 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>ReachMee lite v1.0</title>
-    <link rel="stylesheet" href="scss/normalize.css">
-    <link rel="stylesheet" href="foundation.css">
+    <title>test less</title>
+    <link rel="stylesheet" href="less/bootstrap.css">
 </head>
 <body>
-
 <header id="header">
-    <div class="contain-to-grid fixed">
-    <nav class="top-bar">
-        <ul class="title-area">
-            <li class="name">
-                <h1><a href="index.html">ReachMee</a></h1>
-            </li>
-            <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-        </ul>
-        <section class="top-bar-section">
-           <ul class="left">
-               <li class="divider"></li>
-               <li><a href="projects.html">Projects</a></li>
-               <li><a href="candidates.html">Candidates</a></li>
-               <li><a href="#">Management</a></li>
-           </ul>
-            <ul>
-                <li class="has-form">
-                   <form id="search">
-                       <div class="row collapse">
-                           <div class="small-10 columns">
-                               <input class="search" type="search">
-                           </div>
-                           <div class="small-2 columns">
-                               <button class="button prefix" type="submit">Search</button>
-                           </div>
-
-                       </div>
-                   </form>
+     <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+            <a class="brand" href="/">Reachmee</a>
+            <ul class="nav">
+                <li class="divider-vertical"></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Candidates</a></li>
+                <li><a href="#">Management</a></li>
+                <li class="divider-vertical"></li>
+            </ul>
+            <form class="navbar-form pull-left">
+                <div class="input-append">
+                    <input type="text" class="span4">
+                    <div class="btn-group">
+                        <button class="btn btn-primary dropdown-toggle">
+                            <span class="caret"></span>
+                        </button>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </form>
+            <ul class="nav pull-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="icon-user"></i><b class="caret"></b>
+                    </a>
                 </li>
             </ul>
-            <ul class="right">
-                <li class="divider"></li>
-                <li class="has-dropdown"><a href="#">Admin</a>
-                    <ul class="dropdown">
-                        <li><a href="#">Change password</a></li>
-                        <li><a href="#">Logout</a></li>
-                    </ul>
-
-                </li>
-            </ul>
-        </section>
-    </nav>
-    </div>
+            </div>
+        </div>
+     </div>
 </header>
-<section id="histMenu">
+<section id="histMenu" class="container">
     <div class="row">
-        <div class="columns large-6">
-            <ul class="breadcrumbs">
-                <li class="current"><a href="index.html">home</a></li>
+        <div class="span8">
+            <ul class="breadcrumb">
+                <li><a href="">home</a> <span class="divider">/</span></li>
+                <li><a href="">projects</a> <span class="divider">/</span></li>
+                <li><a href="">QA Enginier</a> <span class="divider">/</span></li>
+                <li class="active">Info</li>
             </ul>
         </div>
     </div>
 </section>
+<section id="funcMenu" class="container">
+<div class="row">
+    <div class="span2">
+        <a class="btn btn-block btn-primary">Add Candidate</a>
+    </div>
+    <div class="span7">
+        <div class="btn-group">
+          <button class="btn"><i class="icon-cogs"></i></button>
+          <button class="btn disabled"><i class="icon-share"></i> Move</button>
+          <button class="btn disabled"><i class="icon-tags"></i> Note</button>
+          <button class="btn disabled"><i class="icon-trash"></i> Remove</button>
+        </div>
+    </div>
+    <div class="span3">
+        <div class="pagination pagination-right">
+            <ul>
+                <li class="disabled"><a href="#">&laquo;</a></li>
+                <li class="active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li class="disabled"><a href="#">...</a></li>
+                <li><a href="#">21</a></li>
+                <li class="disabled"><a href="#">&raquo;</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+<section id="mainBox" class="container">
+    <div class="row">
+        <div class="span2 sideMenu">
+             <ul class="nav nav-side">
+                 <li><a href="#">Dashboard</a></li>
+                 <li class="divider"></li>
+                 <li><a href="#">Info</a></li>
+                 <li><a href="#">Process</a></li>
+                 <li><a href="#">Publishing</a></li>
+                 <li class="nav-header">Candidates</li>
+                 <li class="active"><a href="#">All</a></li>
+                 <li><a href="#">Big boobs</a></li>
+             </ul>
+        </div>
 
-
-
-<footer id="footer">
-</footer>
-
+        <div class="span10">
+            <table class="mainTable table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                    <th class="cellCheckBox"><input type="checkbox"></th>
+                    <th class="cellId">Id</th>
+                    <th class="cellName">Name</th>
+                    <th>Date Added</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>4</td>
+                    <td><a href="project_candidate.html">Wayne Rooney</a></td>
+                    <td>12.02.2013</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>3</td>
+                    <td><a href="candidate.html">Patrice Evra</a></td>
+                    <td>12.02.2013</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>2</td>
+                    <td><a href="candidate.html">Rio Ferdinant</a></td>
+                    <td>12.02.2013</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>1</td>
+                    <td><a href="candidate.html">David De Gea</a></td>
+                    <td>12.02.2013</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>0</td>
+                    <td><a href="candidate.html">Chicharito Havier Hernandez</a></td>
+                    <td>12.02.2013</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
 </body>
 </html>

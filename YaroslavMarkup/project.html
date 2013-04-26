@@ -1,136 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>QA Enginier | ReachMee lite v1.0</title>
-    <link rel="stylesheet" href="scss/normalize.css">
-    <link rel="stylesheet" href="foundation.css">
-    <script type="text/javascript" src="js/vendor/jquery.js"></script>
-    <script src="js/vendor/custom.modernizr.js"></script>
+    <title>Project</title>
+    <link rel="stylesheet" href="less/bootstrap.css">
 </head>
 <body>
 <header id="header">
-    <div class="contain-to-grid fixed">
-        <nav class="top-bar">
-            <ul class="title-area">
-                <li class="name">
-                    <h1><a href="index.html">ReachMee</a></h1>
-                </li>
-                <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
-            </ul>
-            <section class="top-bar-section">
-                <ul class="left">
-                    <li class="divider"></li>
-                    <li class="active"><a href="projects.html">Projects</a></li>
-                    <li><a href="candidates.html">Candidates</a></li>
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="/">Reachmee</a>
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Candidates</a></li>
                     <li><a href="#">Management</a></li>
+                    <li class="divider-vertical"></li>
                 </ul>
-                <ul>
-                    <li class="has-form">
-                        <form id="search">
-                            <div class="row collapse">
-                                <div class="small-10 columns">
-                                    <input class="search" type="search">
-                                </div>
-                                <div class="small-2 columns">
-                                    <button class="button prefix" type="submit">Search</button>
-                                </div>
-
-                            </div>
-                        </form>
+                <form class="navbar-form pull-left">
+                    <div class="input-append">
+                        <input type="text" class="span4">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Admin<b class="caret"></b>
+                        </a>
                     </li>
                 </ul>
-                <ul class="right">
-                    <li class="divider"></li>
-                    <li class="has-dropdown"><a href="#">Admin</a>
-                        <ul class="dropdown">
-                            <li><a href="#">Change password</a></li>
-                            <li><a href="#">Logout</a></li>
-                        </ul>
-
-                    </li>
-                </ul>
-            </section>
-        </nav>
+            </div>
+        </div>
     </div>
 </header>
-<section id="histMenu">
+<section id="histMenu" class="container">
     <div class="row">
-        <div class="columns large-6">
-            <ul class="breadcrumbs">
-                <li><a href="index.html">home</a></li>
-                <li><a href="projects.html">projects</a></li>
-                <li class="current"><a href="project.html">QA Enginier</a></li>
+        <div class="span8">
+            <ul class="breadcrumb">
+                <li><a href="">home</a> <span class="divider">/</span></li>
+                <li><a href="">projects</a> <span class="divider">/</span></li>
+                <li><a href="">QA Enginier</a> <span class="divider">/</span></li>
+                <li class="active">Info</li>
             </ul>
         </div>
     </div>
 </section>
-<section id="funcMenu">
+<section id="funcMenu" class="container">
     <div class="row">
-        <div class="columns large-2">
-            <ul class="side-nav">
-                <li class="active"><a href="project.html">Dashboard</a></li>
-            </ul>
+        <div class="span2"></div>
+        <div class="span7">
+            <div class="btn-group">
+                <button class="btn"><i class="icon-cogs"></i></button>
+                <button class="btn"><i class="icon-plus"></i> Candidate</button>
+                <button class="btn"><i class="icon-lock"></i> Lock</button>
+                <button class="btn"><i class="icon-trash"></i> Remove</button>
+            </div>
         </div>
-
-        <div class="columns large-6">
-
-        </div>
-
-        <div class="columns large-2">
-
-        </div>
+        <div class="span3"></div>
     </div>
 </section>
-<section id="mainBox">
+<section id="mainBox" class="container">
     <div class="row">
-        <div class="columns large-2 sideMenu">
-            <ul class="side-nav">
+        <div class="span2 sideMenu">
+            <ul class="nav nav-side">
+                <li><a href="#">Dashboard</a></li>
                 <li class="divider"></li>
-                <li><a href="project_info.html">Info</a></li>
+                <li class="active"><a href="#">Info</a></li>
                 <li><a href="#">Process</a></li>
                 <li><a href="#">Publishing</a></li>
-                <li><a href="project_candidates.html">Candidates</a></li>
+                <li class="nav-header">Candidates</li>
+                <li><a href="#">All</a></li>
+                <li><a href="#">Big boobs</a></li>
             </ul>
         </div>
-        <div class="columns large-10">
 
-            <div class="projectHistory">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>user</th>
-                        <th>activity</th>
-                        <th>date</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>J.Smith</td>
-                        <td>published on monster</td>
-                        <td>2013-02-18 14:44</td>
-                    </tr>
-                    <tr>
-                        <td>J.Smith</td>
-                        <td>edited</td>
-                        <td>2013-02-10 12:00</td>
-                    </tr>
-                    <tr>
-                        <td>J.Smith</td>
-                        <td>created</td>
-                        <td>2013-02-01 19:02</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <div class="span10">
+            <h2 class="projectTitle">QA Enginier <small><a href="#"><i class="icon-edit"></i> edit</a></small></h2>
+            <div class="row">
+                <div class="span6 projectData">
+                    <h3>Basic data</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <p class="projectField">Talented QA Enginier with passion to work</p>
+                            <small> - job title. This is public field</small>
+                        </li>
+                        <li>
+                            <p class="projectField empty">...</p>
+                            <small> - job description. Few words about current project</small>
+                        </li>
+                    </ul>
+
+                    <h3>Specialization</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <p class="projectField">IT area</p>
+                            <small> - area. Specify area for project</small>
+                        </li>
+                        <li>
+                            <p class="projectField">Head office workers</p>
+                            <small> - category</small>
+                        </li>
+                    </ul>
+                </div>
+                <div class="span4">
+                   <div class="infoBox">
+                       <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
+                       <dl class="dl-horizontal">
+                          <dt>status:</dt>
+                          <dd>open</dd>
+                          <dt>created:</dt>
+                          <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                          <dt>updated:</dt>
+                          <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                       </dl>
+                   </div>
+                </div>
             </div>
         </div>
     </div>
 </section>
-<footer id="footer">
-</footer>
-<script type="text/javascript" src="js/foundation/foundation.js"></script>
-<script type="text/javascript" src="js/foundation/foundation.forms.js"></script>
-<script type="text/javascript">
-    $(document).foundation();
-</script>
 </body>
 </html>
