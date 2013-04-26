@@ -57,7 +57,9 @@
                 <button class="btn"><i class="icon-trash"></i> Remove</button>
             </div>
         </div>
-        <div class="span3"></div>
+        <div class="span3">
+
+        </div>
     </div>
 </section>
 <section id="mainBox" class="container">
@@ -76,17 +78,18 @@
         </div>
 
         <div class="span10">
-            <h2 class="projectTitle">QA Enginier <small><a href="#"><i class="icon-edit"></i> edit</a></small></h2>
+            <h2 class="projectTitle"><input type="text" name="project_name" class="span6 projectField" value="QA Enginier"></h2>
             <div class="row">
                 <div class="span6 projectData">
+                    <form>
                     <h3>Basic data</h3>
                     <ul class="unstyled">
                         <li>
-                            <p class="projectField">Talented QA Enginier with passion to work</p>
+                            <input type="text" name="project_name" id="project_name" class="span6 projectField" value="Talented QA Enginier with passion to work">
                             <small> - job title. This is public field</small>
                         </li>
                         <li>
-                            <p class="projectField empty">...</p>
+                            <textarea class="span6 projectField" name="project_desc" id="project_desc" rows="4"></textarea>
                             <small> - job description. Few words about current project</small>
                         </li>
                     </ul>
@@ -94,27 +97,38 @@
                     <h3>Specialization</h3>
                     <ul class="unstyled">
                         <li>
-                            <p class="projectField">IT area</p>
+                            <select class="span4 projectField" name="project_area" id="project_area">
+                                <option disabled>Select...</option>
+                                <option selected>IT area</option>
+                            </select>
                             <small> - area. Specify area for project</small>
                         </li>
                         <li>
-                            <p class="projectField">Head office workers</p>
+                            <select class="span4 projectField" name="project_field" id="project_field">
+                                <option disabled>Select...</option>
+                                <option selected>Head office workers</option>
+                            </select>
                             <small> - category</small>
                         </li>
                     </ul>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="button" class="btn">Cancel</button>
+                        </div>
+                    </form>
                 </div>
                 <div class="span4">
-                   <div class="infoBox">
-                       <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
-                       <dl class="dl-horizontal">
-                          <dt>status:</dt>
-                          <dd>open</dd>
-                          <dt>created:</dt>
-                          <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
-                          <dt>updated:</dt>
-                          <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
-                       </dl>
-                   </div>
+                    <div class="infoBox">
+                        <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
+                        <dl class="dl-horizontal">
+                            <dt>status:</dt>
+                            <dd>open</dd>
+                            <dt>created:</dt>
+                            <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                            <dt>updated:</dt>
+                            <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        </dl>
+                    </div>
                 </div>
             </div>
         </div>

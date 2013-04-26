@@ -1,0 +1,77 @@
+<div class="row" id="funcMenu">
+    <div class="span2"></div>
+    <div class="span7">
+        <div class="btn-group">
+            <button class="btn"><i class="icon-cogs"></i></button>
+            <button class="btn"><i class="icon-plus"></i> Candidate</button>
+            <button class="btn"><i class="icon-lock"></i> Lock</button>
+            <button class="btn"><i class="icon-trash"></i> Remove</button>
+        </div>
+    </div>
+    <div class="span3"></div>
+</div>
+
+<div class="row">
+    <div class="span2">
+        <projectmenu />
+        <!-- template located under: /partials/ui-elements/t-menu-project -->
+    </div>
+
+    <div class="span10" ng-controller="ProjectInfoCtrl">
+        <h2 class="projectTitle"><input class="span6 projectField" type="text" name="project_name" placeholder="Project name..."></h2>
+        <div class="row">
+            <div class="span6 projectData">
+                <form>
+                    <h3>Basic</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <input type="text" name="project_title" class="span6 projectField" placeholder="Title...">
+                            <small> - job title. This is public field</small>
+                        </li>
+                        <li>
+                            <textarea class="span6 projectField" name="project_desc" rows="4" placeholder="Description"></textarea>
+                            <small> - job description. Few words about current project</small>
+                        </li>
+                    </ul>
+
+                    <!-- TODO: lists should be connected to data model -->
+                    <h3>Specialization</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <select class="span4 projectField" name="project_area">
+                                <option disabled selected>Select...</option>
+                            </select>
+                            <small> - area. Specify area for project</small>
+                        </li>
+                        <li>
+                            <select class="span4 projectField" name="project_field">
+                                <option disabled selected>Select...</option>
+                            </select>
+                            <small> - category</small>
+                        </li>
+                    </ul>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="button" class="btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+            <div class="span4">
+                <!-- TODO: info box should be connected to data model -->
+                <div class="infoBox">
+                    <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
+                    <dl class="dl-horizontal">
+                        <dt>status:</dt>
+                        <dd>open</dd>
+                        <dt>created:</dt>
+                        <!-- TODO: link's to user account -->
+                        <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        <dt>updated:</dt>
+                        <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

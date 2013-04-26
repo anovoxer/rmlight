@@ -1,0 +1,90 @@
+/*!
+   ReachMee lite v. 0.1
+   @yaroslav.sivachenko
+ */
+
+// Bootstrap suff
+@import "less/bootstrap";
+
+body {
+  padding-top: 40px;
+}
+
+#funcMenu {
+  margin-bottom: 15px;
+}
+
+#header .input-append {
+  margin-bottom: 0;
+}
+
+.projectTitle {
+  line-height: 20px;
+  font-size: 20px;
+  padding: 5px 0 0;
+  margin: 0;
+  small {
+    font-size: 13px;
+  }
+}
+
+.infoBox {
+  border: 1px solid @grayLighter;
+  padding: 19px 19px 14px;
+  position: relative;
+  background-color: @white;
+  font-size: 12px;
+  margin-bottom: 10px;
+  .infoLabel {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    padding: 3px 7px;
+    border: 1px solid @grayLighter;
+    color: @gray;
+    font-size: 11px;
+    line-height: 12px;
+    background-color: #F5F5F5;
+  }
+
+  .dl-horizontal {
+    dd {
+      margin-left: 60px;
+    }
+
+    dt {
+
+      width: 50px;
+    }
+  }
+}
+
+.projectData {
+  .projectField {
+    margin: 0;
+    line-height: 16px;
+    display: block;
+    &.empty {
+      color: @grayLight;
+    }
+  }
+
+  small {
+    color: @grayLight;
+  }
+
+  h3 {
+    font-size: 11px;
+    font-weight: normal;
+    line-height: 18px;
+    border-bottom: 1px solid @grayLighter;
+    text-transform: uppercase;
+    text-align: right;
+    color: @grayLight;
+    margin-top: 0;
+  }
+
+  .unstyled li {
+    margin-bottom: 5px;
+  }
+}
