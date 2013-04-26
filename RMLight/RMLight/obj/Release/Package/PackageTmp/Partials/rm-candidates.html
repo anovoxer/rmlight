@@ -1,15 +1,54 @@
-﻿<div ng-controller="CandidateListCtrl">
+﻿<div class="row" id="funcMenu">
+    <div class="columns large-2">
+        <a class="button small large-12" href="#">Add new</a>
+    </div>
 
+    <div class="columns large-7">
+        <ul class="button-group">
+            <li><a class="small button secondary disabled"><i class="icon-cogs"></i></a></li>
+            <li><a class="small button secondary disabled"><i class="icon-share"></i> Move</a></li>
+            <li><a class="small button secondary disabled"><i class="icon-flag"></i> Status</a></li>
+            <li><a class="small button secondary disabled"><i class="icon-tags"></i> Note</a></li>
+            <li><a class="small button secondary disabled"><i class="icon-trash"></i> Delete</a></li>
+        </ul>
+    </div>
 
-    <table class="table table-striped">
-        <thead>
+    <div class="columns large-3">
+        <ul class="pagination">
+            <li class="arrow unavailable"><a href="">&laquo;</a></li>
+            <li class="current"><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li class="unavailable"><a href="">&hellip;</a></li>
+            <li><a href="">43</a></li>
+            <li class="arrow"><a href="">&raquo;</a></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="columns large-2">
+        <!-- Filterbox or something -->
+        <ul class="side-nav">
+            <!-- Default lists -->
+            <li class="divider"></li>
+            <li class="active"><a href="#">All</a></li>
+            <li><a href="#">Favorites</a></li>
+            <li class="divider"></li>
+            <!-- Custom lists  -->
+            <li><a href="#">Tech custom</a></li>
+            <li><a href="#">Lang custom</a></li>
+            <li><a href="#">Big tits</a></li>
+        </ul>
+    </div>
+    <div class="columns large-10 cntrWrapper" ng-controller="CandidateListCtrl">
+        <table class="table mainTable">
+            <thead>
             <tr><th></th><th>id</th><th>name</th></tr>
-        </thead>
-        <tr ng-repeat="candidate in list">
-            <td><input type="checkbox" ng-model="candidate.selected"></td>
-            <td>{{candidate.Id}}</td>
-            <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}}</a></td>
-        </tr>
-    </table>
-
+            </thead>
+            <tr ng-repeat="candidate in list">
+                <td><input type="checkbox" ng-model="candidate.selected"></td>
+                <td>{{candidate.Id}}</td>
+                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}}</a></td>
+            </tr>
+        </table>
+    </div>
 </div>

@@ -1,7 +1,7 @@
 ﻿'use strict'
 
 //var app = angular.module("ReachmeeLightApp", ['ngResource', 'components']);
-var app = angular.module("ReachmeeLightApp", ['ngResource']);
+var app = angular.module("ReachmeeLightApp", ['ngResource', 'ui', 'ui.bootstrap']);
 
 app.constant('configuration', {
     ITEMS_URL: '../js/items.json'
@@ -19,6 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
           when('/management', { templateUrl: 'partials/rm-management.html', controller: null }).
           when('/analytics', { templateUrl: 'partials/rm-analytics.html', controller: null }).
           when('/help', { templateUrl: 'partials/rm-help.html', controller: null }).
+          when('/hi').
           otherwise({ redirectTo: '/home' });
   }]);
 
@@ -36,14 +37,20 @@ app.factory('CandidateDATA', function ($resource) {
 });
 
 app.factory('ProjectDATA', function ($resource) {
-    return $resource('/api/project/:id', { id: '@id' }, { update: { method: 'PUT' } });
+    return $resource('/api/project/:id', { id: '@id' }, { update: { method: 'PUT' }, getpagecount: { method: 'GET', params: { returncount: true }, isArray: false } });
 });
-
 
 app.factory('WorkflowDATA', function ($resource) {
     return $resource('/api/workflow/:id', { id: '@id' });
 });
 
+app.factory('CustomerDATA', function ($resource) {
+    return $resource('/api/customer/:id', { id: '@id' }, { check: { method: 'GET', isArray: false } });
+});
+
+app.factory('SecurityDATA', function ($resource) {
+    return $resource('/api/security/:id', { id: '@id' }, { logout: { method: 'GET', params: { action: 'logout'} } });
+});
 
 app.controller("MenuCtrl", function ($scope, Menu) {
     $scope.items = Menu.query();
@@ -60,6 +67,10 @@ app.controller("CandidateListCtrl", function ($scope, CandidateDATA) {
 //    console.log($location);
 //});
 
+function SecurityCtrl($scope, $route, $routeParams, SecurityDATA) {
+    $scope.logout = function () { alert("here i am"); SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
+};
+
 function CandidateInfoCtrl($scope, $route, $routeParams, CandidateDATA) {
     var id = $routeParams.candidateid;
     $scope.model = CandidateDATA.get({ id: id });
@@ -73,20 +84,22 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
         q: '',
         sort: 'Id',
         desc: true,
-        limit: 2,
+        limit: 10,
         offset: 0
     };
 
     $scope.applyfilter = function (filter) {
         $scope.filter = filter;
-        $scope.search();
+        $scope.search(true);
     }
 
-    $scope.search = function () {
-        $scope.list = ProjectDATA.query($scope.filter);
+    $scope.search = function (resetpage) {
+        $scope.list = ProjectDATA.query($scope.filter, function () { $scope.fmenu.init(); });
+        $scope.pagesCount = ProjectDATA.getpagecount($scope.filter, function (v) { $scope.pagesCount = v.Count; });
+        if (resetpage) { $scope.currentPage = 1; }
     }
 
-    $scope.search();
+    $scope.search(false);
 
     $scope.delete = function () {
         var itemId = this.project.Id;
@@ -94,6 +107,36 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
             $("#item_" + itemId).fadeOut();
         });
     }
+
+    //* top functional menu:
+    // TODO: separate as a directive with own controller.
+    $scope.fmenu = {
+        func: { active: false, click: function () { if (!$scope.fmenu.func.active) { return; } alert("func"); }},
+        move: { active: false, click: function () { if (!$scope.fmenu.move.active) { return; } alert("move"); } },
+        lock: { active: false, click: function () { if (!$scope.fmenu.lock.active) { return; } alert("lock"); } },
+
+        init: function () {
+            $scope.fmenu.move.active = false;
+            $scope.fmenu.lock.active = false;
+            $scope.fmenu.func.active = false;
+            angular.forEach($scope.list, function (v) {
+                if (v.selected) {
+                    $scope.fmenu.move.active = true;
+                    $scope.fmenu.lock.active = true;
+                    $scope.fmenu.func.active = true;
+                }
+            });
+        }
+    }
+
+    //* pager:
+    $scope.pagesCount = 1;
+    $scope.currentPage = 1;
+
+    $scope.$watch('currentPage', function () {
+        $scope.filter.offset = ($scope.currentPage - 1) * $scope.filter.limit;
+        $scope.search(false);
+    });
 };
 
 function ProjectInfoCtrl($scope, $route, $routeParams, ProjectDATA) {

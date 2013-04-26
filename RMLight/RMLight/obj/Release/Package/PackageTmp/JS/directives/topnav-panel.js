@@ -4,6 +4,6 @@
           scope: {
           },
           templateUrl: 'Partials/ui-elements/t-topnav.html',
-          replace: false
+          replace: true
       };
   });
