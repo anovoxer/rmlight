@@ -10,13 +10,13 @@
     </script>
     <script src="build/angular-ui-ieshiv.js"></script>
     <![endif]-->
-
+    <link rel="stylesheet" href="content/style.css">
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <!--<script src="Scripts/bootstrap.js"></script>-->
 
     <!--<link rel="stylesheet" href="content/foundation.css">-->
     <link href="Content/toastr.min.css" rel="stylesheet" />
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+
     <link href="Content/angular-ui.min.css" rel="stylesheet" />
 
     <script type="text/javascript" src="Scripts/vendor/jquery.js"></script>
@@ -36,41 +36,6 @@
     <script src="JS/directives/topnav-panel.js"></script>
 
     <title>ReachMee lite v1.0</title>
-
-
-    <style type="text/css">
-      body {
-        padding-top: 40px;
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-
-      .form-signin {
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .form-signin .form-signin-heading,
-      .form-signin .checkbox {
-        margin-bottom: 10px;
-      }
-      .form-signin input[type="text"],
-      .form-signin input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-        padding: 7px 9px;
-      }
-
-    </style>
-    <link href="Content/bootstrap-responsive.css" rel="stylesheet">
 
     <script>
         app.value('ui.config', {
@@ -148,73 +113,121 @@
 
 
 </head>
-<body>
-
-    <div ng-app="ReachmeeLightApp">
-
-        <section id="mainBox">
-            <div ng-controller="LoginPageCtrl" id="maincontainer" class="container">
-
-                <div class="row">
-                <!-- Main hero unit for a primary marketing message or call to action -->
-                <div class="hero-unit span10">                    
-                    <h2>Hi, aaaand hello to ReachmeeLight! {{ res.Name }} </h2>
-                    <p>the first really awesome HR-system with <b>blackjack and hookers</b>.<br /> You will defenetely enjoy using this system :)</p>
-                    <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-                </div>
-                    </div>
-
-                <!-- Example row of columns -->
-                <div class="row">
-                    <div class="span4" ng-controller="CreateCustomerCtrl">
-
-                      <form class="form-signin" name="form">
-                        <h2 class="form-signin-heading">Create company</h2>
-                        <input type="text" class="input-block-level" required placeholder="Company name" ng-model-onblur ng-model="model.Name" ui-validate="'checkname($value)'">
-                        <div><span class="text-error" ng-show='model.Name != ""  && Validation.nameinuse'>Name in use!</span></div>
-                          {{ Validation.nameinuse + model.Name }}
-                        <input type="text" class="input-block-level" required placeholder="Email address" ng-model="model.Email">
-                        <input type="password" name="password" class="input-block-level" required  placeholder="Password" ng-model="model.Password">
-                        <input type="password" name="confirmpassword" class="input-block-level" required placeholder="Confirm password" ng-model="confirmpassword" ui-validate="'$value==model.Password'"  ui-validate-watch="'model.Password'" >
-                        <div><span class="text-error" ng-show='model.Password != "" && confirmpassword != "" && form.confirmpassword.$error.validator'>Passwords do not match!</span><br />
-                        <br />{{form.$valid}}</div>
-                        <button class="btn btn-large btn-primary" type="submit" ng-click="Create()">Create</button>
-                      </form>
-
-                    </div>
-                    <div class="span4" ng-controller="LoginUserCtrl">
-
-                      <form class="form-signin" name="formsignin">
-                        <h2 class="form-signin-heading">Sign in</h2>
-                        <input type="text" class="input-block-level" required placeholder="Email address" ng-model="loginmodel.Login">
-                        <input type="password" class="input-block-level" required placeholder="Password" ng-model="loginmodel.Password">
-                        <label class="checkbox">
-                          <input type="checkbox" value="remember-me"> Remember me
-                        </label>
-                          <div style="height:110px;"></div>
-                        <button class="btn btn-large btn-primary" type="submit" ng-click="Login();" >Sign in</button>
-                      </form>
-
-                    </div>
-                </div>
-
-                <hr>
-
-                <footer>
-                    <p>&copy; globesoft solutions via TF & YS 2013</p>
-                </footer>
-
+<body ng-app="ReachmeeLightApp">
+<header id="header">
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="hi.html">Reachmee</a>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-signin"></i> Sign In<b class="caret"></b>
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <!-- /container -->
-        </section>
-
-
-        <footer id="footer">
-        </footer>
-
+        </div>
     </div>
+</header>
+<section id="mainBox" class="container" ng-controller="LoginPageCtrl">
+    <div class="row">
+        <div class="span12">
+            <BR>
+            <div class="row">
+                <div class="span8">
+                    <h3><i class="icon-group"></i> Manage your hiring effectively!</h3>
+                    <div class="row">
+                        <div class="span3">
+                            <img src="content/images/ReachMeeBox.gif">
+                        </div>
+                        <div class="span5">
+                            <h4>Know more!</h4>
+                            <p>Visit our site to read more about Reachmee</p>
+                            <p><i class="icon-globe"></i> <a href="http://reachmee.se">reachmee.se</a></p>
+                            <p>Call us if you have any question</p>
+                            <p><i class="icon-phone"></i> +46 (0)8 410 366 01</p>
+                            <hr>
+                            <h4>Start using ReachMee now!</h4>
+                            <a href="#create" class="btn btn-success btn-large">Registrate company</a>
+                        </div>
+                    </div>
+                    <h3><i class="icon-comments-alt"></i> What others say?!</h3>
+                    <div class="infoBox">
+                        <p>
+                            "ReachMee provided everything we wanted and more, they met our specifications by a wide margin! The program is easy to use, also for those who only recruits occasionally. It feels comforting to know that candidates always will get a reply."
+                            <br>
+                            <strong>- Annette Widlund, Destination Gotland</strong>
+                        </p>
+                    </div>
+
+                    <h3><i class="icon-rss"></i> Company news</h3>
+                    <div class="infoBox">
+                        <p class="infoLabel">posted: 2013-04-26</p>
+                        <p>
+                            "ReachMee provided everything we wanted and more, they met our specifications by a wide margin! The program is easy to use, also for those who only recruits occasionally. It feels comforting to know that candidates always will get a reply."
+                            <br>
+                            <a href="#">read more...</a>
+                        </p>
+                    </div>
+                    <div class="infoBox">
+                        <p class="infoLabel">posted: 2013-04-25</p>
+                        <p>
+                            "ReachMee provided everything we wanted and more, they met our specifications by a wide margin! The program is easy to use, also for those who only recruits occasionally. It feels comforting to know that candidates always will get a reply."
+                            <br>
+                            <a href="#">read more...</a>
+                        </p>
+                    </div>
 
 
 
+                    <section id="create" ng-controller="CreateCustomerCtrl">
+                        <form name="form">
+                            <fieldset>
+                                <legend>Register an Account</legend>
+                                <h4>Login data</h4>
+                                <input type="email" name="email" placeholder="Email address" class="span5" required ng-model="model.Email">
+
+                                <input type="password" name="password" placeholder="Password" class="span5" required ng-model="model.Password">
+                                <input type="password" name="confirmpassword" placeholder="Confirm password" class="span5" required ng-model="confirmpassword" ui-validate="'$value==model.Password'"  ui-validate-watch="'model.Password'">
+                                <h4>Company info</h4>
+                                <input type="text" name="name" placeholder="Company name" class="span5" ng-model-onblur ng-model="model.Name" ui-validate="'checkname($value)'">
+                                <span class="help-inline">real company name</span>
+                                <input type="text" placeholder="Registration No" class="span5">
+                                <span class="help-inline">reg no / COO</span>
+                                <textarea rows="4" placeholder="Describe your company..." class="span5"></textarea>
+
+                                <h4>Personal Info</h4>
+                                <input type="text" placeholder="First Name" class="span5">
+                                <input type="text" placeholder="Last Name" class="span5">
+                            </fieldset>
+                            <label class="checkbox"><input type="checkbox" required="">Agree with terms&conditions</label>
+                            <div><span class="text-error" ng-show='model.Password != "" && confirmpassword != "" && form.confirmpassword.$error.validator'>Passwords do not match!</span><br />
+                                <br />{{form.$valid}}</div>
+                            <button class="btn btn-success">Registrate</button>
+                        </form>
+                    </section>
+                </div>
+                <div class="span4" ng-controller="LoginUserCtrl">
+                    <form class="well">
+                        <fieldset>
+                            <legend>Sign In</legend>
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-envelope"></i></span>
+                                <input name="email" type="email" placeholder="Email address" required ng-model="loginmodel.Login">
+                            </div>
+                            <div class="input-prepend">
+                                <span class="add-on"><i class="icon-key"></i></span>
+                                <input name="password" type="password" placeholder="Password" required ng-model="loginmodel.Password">
+                            </div>
+                        </fieldset>
+                        <label class="checkbox"><input type="checkbox">Remember me</label>
+                        <button class="btn btn-primary" type="submit" ng-click="Login();"><i class="icon-signin"></i> Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 </body>
 </html>
