@@ -1922,6 +1922,12 @@ table th[class*="span"],
   width: 924px;
   margin-left: 0;
 }
+.table td.cellCheckBox,
+.table th.cellCheckBox {
+  padding: 8px 0 8px;
+  width: 39px;
+  text-align: center;
+}
 .table tbody tr.success > td {
   background-color: #dff0d8;
 }
@@ -3713,6 +3719,12 @@ input[type="submit"].btn.btn-mini {
   padding-right: 0;
   border-right: 2px solid #2ba6cb;
   background-color: transparent;
+}
+.nav-side li a span {
+  float: right;
+  padding-right: 5px;
+  font-size: 75%;
+  color: #999999;
 }
 .nav-side li.active a {
   color: #2ba6cb;
@@ -7174,7 +7186,7 @@ body {
 .projectData .thumbnail,
 .candidateData .thumbnail {
   background-color: #ffffff;
-  width: 250px;
+  width: 150px;
 }
 .projectData .thumbnail.left,
 .candidateData .thumbnail.left {
