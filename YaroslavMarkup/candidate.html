@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="" class=" js no-touch svg inlinesvg svgclippaths no-ie8compat js no-touch svg inlinesvg svgclippaths no-ie8compat"><head>
+<title>ReachMee lite v1.0</title>
+<link rel="stylesheet" href="less/bootstrap.css">
+</head>
+<body>
+<header id="header">
+    <div class="navbar navbar-fixed-top navbar-inverse">
+        <nav class="ng-isolate-scope ng-scope navbar-inner">
+            <div class="container">
+                <a class="brand" href="index.html">ReachMee</a>
+                <ul class="nav">
+                    <li class="divider-vertical"></li>
+                    <li><a href="#/projects">Projects</a></li>
+                    <li class="active"><a href="#/candidates">Candidates</a></li>
+                    <li><a href="#">Management</a></li>
+                </ul>
+                <form class="navbar-form pull-left ng-pristine ng-valid">
+                    <div class="input-append">
+                        <input type="text" class="span4">
+                        <div class="btn-group">
+                            <button class="btn btn-primary dropdown-toggle">
+                                <span class="caret"></span>
+                            </button>
+                            <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                    </div>
+                </form>
+                <ul class="nav pull-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-user"></i><b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Change password</a></li>
+                            <li><a href="#" ng-click="logout();">Logout</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav></div>
+</header>
+
+<section id="histMenu" class="container">
+    <div class="row">
+        <div class="span8">
+            <ul class="breadcrumb">
+                <li><a href="index.html">home</a> <span class="divider">/</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section id="mainBox" ng-controller="MainDCController" class="container ng-scope">
+    <div ng-view=""><div class="row ng-scope" id="funcMenu">
+        <div class="span2"></div>
+
+        <div class="span7">
+            <div class="btn-group">
+                <button type="button" class="btn"><i class="icon-cogs"></i></button>
+                <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
+                <button type="button" class="btn"><i class="icon-trash"></i> Delete</button>
+            </div>
+        </div>
+
+        <div class="span3"></div>
+    </div>
+
+        <div class="row ng-scope">
+            <div class="span2 sideMenu">
+                <ul class="nav nav-side">
+                    <li class="active"><a href="#">Info</a></li>
+                </ul>
+            </div>
+            <div class="span10 profileBox">
+                <div class="row">
+                    <div class="span3">
+                        <div class="thumbnail">
+                            <img src="images/jaro.png">
+                        </div>
+                    </div>
+                    <div class="span7">
+                        <h3 class="ng-binding"></h3>
+
+                        <ul class="unstyled">
+                            <li><i class="icon-calendar"></i> 10.12.1979 (34 years)</li>
+                            <li><address><i class="icon-map-marker"></i> 123 Colonial Ave.<br>
+                                Caprica City</address></li>
+                            <li class="email"><a href="mailto:" class="ng-binding"><i class="icon-envelope"></i> </a></li>
+                            <li><i class="icon-mobile-phone"></i> 050 1224412</li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </div>
+        </div></div>
+</section>
+
+
+<footer id="footer" class="container">
+</footer>
+
+
+</body></html>

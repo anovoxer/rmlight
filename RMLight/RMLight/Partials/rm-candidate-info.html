@@ -1,55 +1,47 @@
-﻿<div class="row" id="funcMenu">
-    <div class="columns large-2">
-        <a class="button small large-12" href="#candidates"><i class="icon-arrow-left"></i> All</a>
+﻿<!-- TODO: replace static data with vars -->
+<div class="row" id="funcMenu">
+    <div class="span2"></div>
+
+    <div class="span7">
+        <div class="btn-group">
+            <button type="button" class="btn"><i class="icon-cogs"></i></button>
+            <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
+            <button type="button" class="btn"><i class="icon-trash"></i> Delete</button>
+        </div>
     </div>
 
-    <div class="columns large-7">
-        <ul class="button-group">
-            <li><a class="small button secondary"><i class="icon-cogs"></i></a></li>
-            <li><a class="small button secondary" href="#/candidates/{{model.Id}}/edit"><i class="icon-edit"></i> Edit</a></li>
-            <li><a class="small button secondary"><i class="icon-share"></i> Move</a></li>
-            <li><a class="small button secondary"><i class="icon-flag"></i> Status</a></li>
-            <li><a class="small button secondary"><i class="icon-tags"></i> Note</a></li>
-            <li><a class="small button secondary"><i class="icon-trash"></i> Remove</a></li>
-        </ul>
-    </div>
-
-    <div class="columns large-3">
-        <ul class="pagination">
-            <li class="arrow unavailable"><a href="">&laquo;</a></li>
-            <li class="current"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li class="unavailable"><a href="">&hellip;</a></li>
-            <li><a href="">43</a></li>
-            <li class="arrow"><a href="">&raquo;</a></li>
-        </ul>
-    </div>
+    <div class="span3"></div>
 </div>
 
 <div class="row">
-    <div class="columns large-2 sideMenu">
-        <ul class="side-nav">
-            <li class="divider"></li>
+    <div class="span2 sideMenu">
+        <ul class="nav nav-side">
+            <li class="active"><a href="#">Info</a></li>
         </ul>
     </div>
-    <div class="columns large-10 appDetails cntrWrapper">
-        <hr>
+    <div class="span10 profileBox">
         <div class="row">
-            <div class="columns large-3">
-                <a class="th radius"><img src="images/rooney.jpg"></a>
-            </div>
-            <div class="columns large-9">
-                <h4>{{model.Name}}</h4>
+            <div class="span10 candidateData">
+                <div class="thumbnail left">
+                    <img src="images/jaro.png">
+                </div>
+                <h2 class="candidateTitle">Sivachenko Yaroslav <small><a href="#/candidates/{{candidate.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
 
-                <ul class="no-bullet">
+                <h3>Basic</h3>
+                <ul class="unstyled">
                     <li><i class="icon-calendar"></i> 10.12.1979 (34 years)</li>
-                    <li><address><i class="icon-map-marker"></i> 123 Colonial Ave.<br/>
-                        Caprica City</address></li>
-                    <li class="email"><a href="mailto:{{model.Email}}"><i class="icon-envelope"></i> {{model.Email}}</a></li>
+                    <li><address><i class="icon-map-marker"></i> 123 Colonial Ave. Caprica City</address></li>
+                    <li class="email"><a href="mailto:{{model.Email}}"><i class="icon-envelope"></i> yark.smolk@gmail.com</a></li>
                     <li><i class="icon-mobile-phone"></i> 050 1224412</li>
                 </ul>
 
+                <!--
+                <h3>Files</h3>
 
+                <h3>Education</h3>
+
+                <h3>Projects</h3>
+                -->
             </div>
         </div>
     </div>

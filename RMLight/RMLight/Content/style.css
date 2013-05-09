@@ -1422,7 +1422,7 @@ select:focus:invalid:focus {
 }
 .input-append,
 .input-prepend {
-  display: inline-block;
+  display: block;
   margin-bottom: 10px;
   vertical-align: middle;
   font-size: 0;
@@ -7127,14 +7127,63 @@ body {
 #header .input-append {
   margin-bottom: 0;
 }
-.projectTitle {
+.projectTitle,
+.candidateTitle {
   line-height: 20px;
   font-size: 20px;
   padding: 5px 0 0;
   margin: 0;
 }
-.projectTitle small {
+.projectTitle small,
+.candidateTitle small {
   font-size: 13px;
+}
+.projectData .projectField,
+.candidateData .projectField {
+  margin: 0;
+  line-height: 16px;
+  display: block;
+}
+.projectData .projectField.empty,
+.candidateData .projectField.empty {
+  color: #999999;
+}
+.projectData small,
+.candidateData small {
+  color: #999999;
+}
+.projectData h3,
+.candidateData h3 {
+  font-size: 11px;
+  font-weight: normal;
+  line-height: 18px;
+  border-bottom: 1px solid #eeeeee;
+  text-transform: uppercase;
+  text-align: right;
+  color: #999999;
+  margin-top: 0;
+}
+.projectData .unstyled li,
+.candidateData .unstyled li {
+  margin-bottom: 5px;
+}
+.projectData address,
+.candidateData address {
+  margin-bottom: 0;
+}
+.projectData .thumbnail,
+.candidateData .thumbnail {
+  background-color: #ffffff;
+  width: 250px;
+}
+.projectData .thumbnail.left,
+.candidateData .thumbnail.left {
+  margin-right: 10px;
+  float: left;
+}
+.projectData .form-actions,
+.candidateData .form-actions {
+  clear: left;
 }
 .infoBox {
   border: 1px solid #eeeeee;
@@ -7160,28 +7209,4 @@ body {
 }
 .infoBox .dl-horizontal dt {
   width: 50px;
-}
-.projectData .projectField {
-  margin: 0;
-  line-height: 16px;
-  display: block;
-}
-.projectData .projectField.empty {
-  color: #999999;
-}
-.projectData small {
-  color: #999999;
-}
-.projectData h3 {
-  font-size: 11px;
-  font-weight: normal;
-  line-height: 18px;
-  border-bottom: 1px solid #eeeeee;
-  text-transform: uppercase;
-  text-align: right;
-  color: #999999;
-  margin-top: 0;
-}
-.projectData .unstyled li {
-  margin-bottom: 5px;
 }
