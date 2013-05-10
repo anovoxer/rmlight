@@ -56,7 +56,7 @@ app.factory('Menu', function ($resource) {
 });
 
 app.factory('CandidateDATA', function ($resource) {
-    return $resource('/api/candidate/:id', { id: '@id' });
+    return $resource('/api/candidate/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
 
 app.factory('ProjectDATA', function ($resource) {
@@ -104,9 +104,37 @@ function SecurityCtrl($scope, $route, $routeParams, SecurityDATA) {
     $scope.logout = function () { SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
 };
 
-function CandidateInfoCtrl($scope, $route, $routeParams, CandidateDATA) {
+function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDATA) {
     var id = $routeParams.candidateid;
-    $scope.candidate = CandidateDATA.get({ id: id });
+    $scope.candidate = id == 0 ? {} : CandidateDATA.get({ id: id });
+
+    $scope.Save = function () {
+        if (id == 0) {
+            CandidateDATA.save($scope.candidate, function (info) {
+                $location.path("/candidates/" + info.Id);
+                toastr.success('Candidate ' + info.Name + ' created');
+            });
+        } else {
+            CandidateDATA.update({ id: id }, $scope.candidate, function (info) {
+                $location.path("/candidates/" + info.Id);
+                toastr.success('Candidate ' + info.Name + ' saved');
+            });
+        }
+    };
+
+    $scope.Cancel = function () {
+        $location.path("/candidates" + ($scope.candidate.Id > 0 ? "/" + $scope.candidate.Id : ""));
+    };
+
+    $scope.Delete = function () {
+        var confirm = window.confirm("Remove candidate information?");
+        if (confirm) {
+            CandidateDATA.delete({ id: $scope.candidate.Id }, function (info) {
+                $location.path("/candidates");
+                toastr.success('Candidate ' + info.Name + ' was removed from system.');
+            });
+        };
+    };
 };
 
 function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
@@ -174,7 +202,7 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
 
 function ProjectInfoCtrl($scope, $route, $routeParams, ProjectDATA, DataContainer) {
     var id = $routeParams.projectid;
-    $scope.model = id == 0 ? {} : ProjectDATA.get({ id: id }, function (data) { $scope.GlobalController.projectname = data.Name; });    
+    $scope.model = id == 0 ? {} : ProjectDATA.get({ id: id }, function (data) { $scope.GlobalController.projectname = data.Name; });
 
     $scope.Save = function () {
         if (id == 0) {
