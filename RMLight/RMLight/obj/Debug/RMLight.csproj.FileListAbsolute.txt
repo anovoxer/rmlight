@@ -36,8 +36,8 @@ D:\ReachmeeLight\RMLight\RMLight\bin\System.Web.Razor.xml
 D:\ReachmeeLight\RMLight\RMLight\bin\System.Web.WebPages.xml
 D:\ReachmeeLight\RMLight\RMLight\bin\System.Web.WebPages.Deployment.xml
 D:\ReachmeeLight\RMLight\RMLight\bin\System.Web.WebPages.Razor.xml
+D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.csprojResolveAssemblyReference.cache
 D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.Migrations.InitialCreate.resources
 D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.csproj.GenerateResource.Cache
 D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.dll
 D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.pdb
-D:\ReachmeeLight\RMLight\RMLight\obj\Debug\RMLight.csprojResolveAssemblyReference.cache

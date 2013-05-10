@@ -40,6 +40,7 @@
     <script src="JS/directives/tabs.js"></script>
     <script src="JS/directives/filterbox.js"></script>
     <script src="JS/directives/activemenu.js"></script>
+    <script src="JS/services/breadcrumb.js"></script>
 
     <script src="JS/directives/workflow.js"></script>
     <script src="JS/directives/topnav-panel.js"></script>
@@ -54,6 +55,10 @@
             });
         }
 
+        app.controller("GlobalController", function ($scope) {
+            this.projectname = '';
+            return $scope.GlobalController = this;
+        });
         
     </script>
 
@@ -64,25 +69,25 @@
     <!-- TODO: somewhere in app.js we need to check after first landing on index.html is we are authorized, otherwise redirect us to */hi.html -->
 
 </head>
-<body ng-app="ReachmeeLightApp">
+<body ng-app="ReachmeeLightApp" ng-controller="GlobalController">
         <header id="header">
             <div class="navbar navbar-fixed-top navbar-inverse">
                 <topnavigation />                
             </div>
         </header>
 
+        
         <section id="histMenu" class="container">
             <div class="row">
                 <div class="span8">
-                    <ul class="breadcrumb">
-                        <li><a href="index.html">home</a> <span class="divider">/</span></li>
-                    </ul>
+                    <breadcrumb></breadcrumb>
                 </div>
             </div>
         </section>
 
         <section id="mainBox" ng-controller="MainDCController" class="container">
-            <div ng-view></div>
+            <div ng-view>                
+            </div>
         </section>
 
 

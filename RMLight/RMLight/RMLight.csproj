@@ -280,6 +280,7 @@
     <Content Include="JS\directives\topnav-panel.js" />
     <Content Include="JS\directives\workflow.js" />
     <Content Include="JS\directives\tabs.js" />
+    <Content Include="JS\services\breadcrumb.js" />
     <Content Include="MSBuild\doit.xml" />
     <Content Include="Partials\admin\admin-users-list.html" />
     <Content Include="Partials\rm-project-procedure.html" />
@@ -518,7 +519,9 @@
     <Content Include="Scripts\vendor\custom.modernizr.js" />
     <Content Include="Scripts\vendor\jquery.js" />
     <Content Include="Scripts\vendor\zepto.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

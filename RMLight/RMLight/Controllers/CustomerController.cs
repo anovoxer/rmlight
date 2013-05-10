@@ -14,6 +14,8 @@ namespace RMLight.Controllers
 {
     public class SecurityController : ApiController
     {
+        private RMLightContext db = new RMLightContext();
+
         public bool GetSecurity(string action)
         {
             switch (action)
@@ -23,6 +25,21 @@ namespace RMLight.Controllers
                     return true;
             }
             return false;
+        }
+
+        public object GetCurrentUser()
+        {
+            if (HttpContext.Current.Request.IsAuthenticated)
+            {
+                User user = db.Users.FirstOrDefault(u => u.Email == HttpContext.Current.User.Identity.Name);
+                return new
+                {
+                    Name = user.FirstName + " " + user.LastName,
+                    Email = user.Email
+                };
+            }
+
+            return new { };
         }
     }
 
