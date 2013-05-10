@@ -1,6 +1,6 @@
 ﻿<div class="row" id="funcMenu">
     <div class="span2">
-        <a class="btn btn-block btn-primary" href="#/candidates/0">Add new</a>
+        <a class="btn btn-block btn-primary" href="#/candidates/0/edit">Add new</a>
     </div>
 
     <div class="span7">
@@ -36,7 +36,7 @@
             <tr ng-repeat="candidate in list">
                 <td class="cellCheckBox"><input type="checkbox" ng-model="candidate.selected"></td>
                 <td>{{candidate.Id}}</td>
-                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}}</a></td>
+                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}} {{candidate.Lastname}}</a></td>
             </tr>
         </table>
     </div>

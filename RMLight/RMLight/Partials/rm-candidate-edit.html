@@ -1,25 +1,13 @@
-﻿<!-- TODO: 2TARAS: remove if don't need that -->
-<!--
-<div>
-
-    <div class="span2">Name:</div><div class="span3"><input type="text" ng-model="model.Name" /></div>
-    <div class="span2">Email:</div><div class="span3"><input type="text" ng-model="model.Email" /></div><br />
-    <div class="span2">Phone:</div><div class="span3"><input type="text" ng-model="model.Phone" /></div><br />
-    <div class="span2">Rating:</div><div class="span3"><input type="text" ng-model="model.Rating" /></div><br />    
-    
-    <div class="span2 btn"  ng-click="Save()">Save</div>
-
-</div>
--->
+﻿
 <!-- TODO: replace static data with vars -->
 <div class="row" id="funcMenu">
     <div class="span2"></div>
 
     <div class="span7">
-        <div class="btn-group">
+        <div class="btn-group" ng-show="candidate.Id > 0">
             <button type="button" class="btn"><i class="icon-cogs"></i></button>
             <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
-            <button type="button" class="btn"><i class="icon-trash"></i> Delete</button>
+            <button type="button" class="btn" ng-click="Delete();" ><i class="icon-trash"></i> Delete</button>
         </div>
     </div>
 
@@ -41,31 +29,31 @@
                 </div>
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-user"></i></span>
-                    <input type="text" class="input-small" value="Sivachenko" required>
-                    <input type="text" class="input-small" value="Yaroslav" required>
+                    <input type="text" class="input-small" ng-model="candidate.Name" required>
+                    <input type="text" class="input-small" ng-model="candidate.Lastname" required>
                 </div>
 
                 <h3>Basic</h3>
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-calendar"></i></span>
-                    <input type="date" value="10.12.1979">
+                    <input type="date" value="10.12.1979"> <!-- TODO: assign to normal datamodel -->
                 </div>
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-map-marker"></i></span>
-                    <input type="text" value="123 Colonial Ave. Caprica City">
+                    <input type="text" ng-model="candidate.Address">
                 </div>
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-envelope"></i></span>
-                    <input type="email" value="yark.smolk@gmail.com" required>
+                    <input type="email" ng-model="candidate.Email" required>
                 </div>
                 <div class="input-prepend">
                     <span class="add-on"><i class="icon-phone"></i></span>
-                    <input type="text" value="050 3874794">
+                    <input type="text" ng-model="candidate.Phone">
                 </div>
 
                 <div class="form-actions">
-                    <button type="submit" class="btn btn-success">Save</button>
-                    <button type="button" class="btn">Cancel</button>
+                    <button type="submit" class="btn btn-success" ng-click="Save();">Save</button>
+                    <button type="button" class="btn" ng-click="Cancel();">Cancel</button>
                 </div>
                 </form>
             </div>
