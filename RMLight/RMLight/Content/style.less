@@ -68,6 +68,11 @@ body {
       margin-right: 10px;
       float: left;
     }
+
+    &.right {
+      margin-left: 10px;
+      float: right;
+    }
   }
 
   .form-actions {
@@ -104,5 +109,54 @@ body {
       width: 50px;
     }
   }
+
+  &.candidateCardList {
+    padding: 25px 0px 0px;
+  }
+}
+
+.candidateCardList {
+    li {
+      display: block;
+      position: relative;
+      padding-left: 28px;
+      padding-right: 4px;
+      background-color: #F3F3F3;
+      border-bottom: 1px solid @grayLighter;
+      margin-bottom: 1px;
+
+      a {
+        color: @textColor;
+        display: block;
+        &:hover {
+          text-decoration: none;
+        }
+
+        span {
+          font-size: 85%;
+        }
+      }
+
+      i {
+        position: absolute;
+        line-height: 41px;
+        font-size: 17px;
+        margin-left: -25px;
+        color: @grayLight;
+      }
+
+      img {
+        position: absolute;
+        top:0;
+        left:2px;
+        height: 100%;
+        display: none;
+      }
+
+      &:hover {
+        background-color: @grayLighter;
+      }
+
+    }
 }
 

@@ -7193,6 +7193,11 @@ body {
   margin-right: 10px;
   float: left;
 }
+.projectData .thumbnail.right,
+.candidateData .thumbnail.right {
+  margin-left: 10px;
+  float: right;
+}
 .projectData .form-actions,
 .candidateData .form-actions {
   clear: left;
@@ -7221,4 +7226,43 @@ body {
 }
 .infoBox .dl-horizontal dt {
   width: 50px;
+}
+.infoBox.candidateCardList {
+  padding: 25px 0px 0px;
+}
+.candidateCardList li {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  padding-right: 4px;
+  background-color: #F3F3F3;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 1px;
+}
+.candidateCardList li a {
+  color: #333333;
+  display: block;
+}
+.candidateCardList li a:hover {
+  text-decoration: none;
+}
+.candidateCardList li a span {
+  font-size: 85%;
+}
+.candidateCardList li i {
+  position: absolute;
+  line-height: 41px;
+  font-size: 17px;
+  margin-left: -25px;
+  color: #999999;
+}
+.candidateCardList li img {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  height: 100%;
+  display: none;
+}
+.candidateCardList li:hover {
+  background-color: #eeeeee;
 }
