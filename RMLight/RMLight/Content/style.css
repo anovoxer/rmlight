@@ -1922,12 +1922,6 @@ table th[class*="span"],
   width: 924px;
   margin-left: 0;
 }
-.table td.cellCheckBox,
-.table th.cellCheckBox {
-  padding: 8px 0 8px;
-  width: 39px;
-  text-align: center;
-}
 .table tbody tr.success > td {
   background-color: #dff0d8;
 }
@@ -1951,6 +1945,64 @@ table th[class*="span"],
 }
 .table-hover tbody tr.info:hover > td {
   background-color: #c4e3f3;
+}
+.mainTable {
+  border: 1px solid #dddddd;
+}
+.mainTable input[type="radio"],
+.mainTable input[type="checkbox"] {
+  margin: 0;
+}
+.mainTable thead {
+  background: #f9f9f9;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ececec), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: -moz-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: -o-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: linear-gradient(to top, #ececec, #f9f9f9);
+  color: #555555;
+}
+.mainTable thead th,
+.mainTable thead td {
+  font-weight: normal;
+  line-height: 16px;
+}
+.mainTable thead th.cellCheckBox,
+.mainTable thead td.cellCheckBox {
+  text-align: center;
+  width: 39px;
+  padding: 0;
+  vertical-align: middle;
+}
+.mainTable tbody tr .rowActions {
+  font-size: 85%;
+  display: none;
+}
+.mainTable tbody tr .rowActions .remove a {
+  color: #c3325f;
+}
+.mainTable tbody tr:hover .rowActions {
+  display: block;
+}
+.mainTable tbody tr td {
+  vertical-align: middle;
+}
+.mainTable tbody tr td.cellName {
+  vertical-align: top;
+  width: 45%;
+}
+.mainTable tbody tr td.cellCheckBox {
+  text-align: center;
+  width: 39px;
+  padding: 0;
+}
+.mainTable tbody tr td abbr {
+  border: none;
+  cursor: auto;
+}
+.mainTable tbody tr td .secondary {
+  font-size: 85%;
+  color: #999999;
 }
 [class^="icon-"],
 [class*=" icon-"] {

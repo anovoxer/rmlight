@@ -28,11 +28,13 @@
 
 
     <div class="span10">
-        <table class="mainTable table table-striped table-bordered table-hover">
+        <table class="mainTable table table-striped table-hover">
             <thead>
                 <tr>
                     <th ng-repeat="column in grid.columns" ng-class="column.Type">{{column.Name}}
                     </th>
+                    <!-- TODO: Hej is it somethig that should be moved to JS? -->
+                    <th class="cellDate">Date</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +42,22 @@
                     <td class="cellCheckBox">
                         <input type="checkbox" ng-model="project.selected" ng-click="fmenu.init();"></td>
                     <td class="cellId">{{project.Id}}</td>
-                    <td class="cellName"><a href="#/projects/info/{{project.Id}}">{{project.Name}}</a></td>
+                    <td class="cellName">
+                        <a href="#/projects/info/{{project.Id}}">{{project.Name}}</a>
+                        <div class="rowActions">
+                            <span class="edit"><a href="#">edit</a></span>
+                            |
+                            <span class="note"><a href="#">lock</a></span>
+                            |
+                            <span class="remove"><a href="#">delete</a></span>
+                        </div>
+                    </td>
                     <td class="cellNumber"><a href="#">{{0}}</a></td>
                     <td class="cellNumber"><a href="#/project/candidates/{{project.Id}}">{{3}}</a></td>
+                    <td class="cellDate">
+                        <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                        <br/><span class="secondary">Created</span>
+                    </td>
                     <!--<td><a ng-click="delete()"><i class="icon-remove"></i></a></td>-->
                 </tr>
             </tbody>
