@@ -1,7 +1,24 @@
 ﻿'use strict'
 
+var pages = {
+    home: { name: "home", url: "#/home" },
+    projects: { name: "projects", url: "#/projects" },
+    projectinfo: { name: "{projectname}", url: "#/projects/info/:projectid" },
+    projectdash: { name: "dashboard", url: "#/projects/dashboard/:projectid" },
+    projectpublish: { name: "publishing", url: "#/projects/publishing/:projectid" },
+    projectprocedure: { name: "procedure", url: "#/projects/procedure/:projectid" },
+    projectcandidates: { name: "candidates", url: "#/projects/candidates/:projectid" },
+};
+
+var paths = {
+    projects: [pages.home, pages.projects],
+    projectsinfo: [pages.home, pages.projects, pages.projectinfo],
+    projectdash: [pages.home, pages.projects, pages.projectinfo, pages.projectdash],
+    projectcandidates: [pages.home, pages.projects, pages.projectinfo, pages.projectcandidates]
+};
+
 //var app = angular.module("ReachmeeLightApp", ['ngResource', 'components']);
-var app = angular.module("ReachmeeLightApp", ['ngResource', 'ui', 'ui.bootstrap']);
+var app = angular.module("ReachmeeLightApp", ['ngResource', 'ui', 'ui.bootstrap', 'services.breadcrumbs']);
 
 app.constant('configuration', {
     ITEMS_URL: '../js/items.json'
@@ -12,9 +29,9 @@ app.config(['$routeProvider', function ($routeProvider) {
           when('/home', { templateUrl: 'partials/rm-dashboard.html', controller: null }).
 
           when('/projects/:projectid', { templateUrl: 'partials/rm-project.html', controller: ProjectSupervisor }).
-          when('/projects', { templateUrl: 'partials/rm-project-list.html', controller: ProjectListCtrl }).
-          when('/projects/dashboard/:projectid', { templateUrl: 'partials/rm-project-dashboard.html', controller: null }).
-          when('/projects/info/:projectid', { templateUrl: 'partials/rm-project-info.html', controller: null }).
+          when('/projects', { templateUrl: 'partials/rm-project-list.html', controller: ProjectListCtrl, bread: paths.projects }).
+          when('/projects/dashboard/:projectid', { templateUrl: 'partials/rm-project-dashboard.html', controller: null, bread: paths.projectdash }).
+          when('/projects/info/:projectid', { templateUrl: 'partials/rm-project-info.html', controller: null, bread: paths.projectsinfo }).
           when('/projects/procedure/:projectid', { templateUrl: 'partials/rm-project-procedure.html', controller: null }).
           when('/projects/publishing/:projectid', { templateUrl: 'partials/rm-project-publishing.html', controller: null }).
 
@@ -39,7 +56,7 @@ app.factory('Menu', function ($resource) {
 });
 
 app.factory('CandidateDATA', function ($resource) {
-    return $resource('/api/candidate/:id', { id: '@id' });
+    return $resource('/api/candidate/:id', { id: '@id' }, { update: { method: 'PUT' } });
 });
 
 app.factory('ProjectDATA', function ($resource) {
@@ -58,6 +75,14 @@ app.factory('SecurityDATA', function ($resource) {
     return $resource('/api/security/:id', { id: '@id' }, { logout: { method: 'GET', params: { action: 'logout'} } });
 });
 
+app.factory('DataContainer', function () {
+    return {
+        projectname: '',
+        candidatename: ''
+    };
+});
+
+
 app.controller("MenuCtrl", function ($scope, Menu) {
     $scope.items = Menu.query();
     $scope.activeid = -1;
@@ -74,12 +99,42 @@ app.controller("CandidateListCtrl", function ($scope, CandidateDATA) {
 //});
 
 function SecurityCtrl($scope, $route, $routeParams, SecurityDATA) {
-    $scope.logout = function () { alert("here i am"); SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
+    $scope.model = SecurityDATA.get();
+    //console.log($scope.model);
+    $scope.logout = function () { SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
 };
 
-function CandidateInfoCtrl($scope, $route, $routeParams, CandidateDATA) {
+function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDATA) {
     var id = $routeParams.candidateid;
-    $scope.model = CandidateDATA.get({ id: id });
+    $scope.candidate = id == 0 ? {} : CandidateDATA.get({ id: id });
+
+    $scope.Save = function () {
+        if (id == 0) {
+            CandidateDATA.save($scope.candidate, function (info) {
+                $location.path("/candidates/" + info.Id);
+                toastr.success('Candidate ' + info.Name + ' created');
+            });
+        } else {
+            CandidateDATA.update({ id: id }, $scope.candidate, function (info) {
+                $location.path("/candidates/" + info.Id);
+                toastr.success('Candidate ' + info.Name + ' saved');
+            });
+        }
+    };
+
+    $scope.Cancel = function () {
+        $location.path("/candidates" + ($scope.candidate.Id > 0 ? "/" + $scope.candidate.Id : ""));
+    };
+
+    $scope.Delete = function () {
+        var confirm = window.confirm("Remove candidate information?");
+        if (confirm) {
+            CandidateDATA.delete({ id: $scope.candidate.Id }, function (info) {
+                $location.path("/candidates");
+                toastr.success('Candidate ' + info.Name + ' was removed from system.');
+            });
+        };
+    };
 };
 
 function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
@@ -145,9 +200,9 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
     });
 };
 
-function ProjectInfoCtrl($scope, $route, $routeParams, ProjectDATA) {
+function ProjectInfoCtrl($scope, $route, $routeParams, ProjectDATA, DataContainer) {
     var id = $routeParams.projectid;
-    $scope.model = id == 0 ? {} : ProjectDATA.get({ id: id });
+    $scope.model = id == 0 ? {} : ProjectDATA.get({ id: id }, function (data) { $scope.GlobalController.projectname = data.Name; });
 
     $scope.Save = function () {
         if (id == 0) {

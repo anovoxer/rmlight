@@ -1,0 +1,220 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=8" />
+
+    <!--[if lte IE 8]>
+    <script> 
+        window.myCustomTags = [ 'superman' ]; // optional
+    </script>
+    <script src="build/angular-ui-ieshiv.js"></script>
+    <![endif]-->
+
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <!--<script src="Scripts/bootstrap.js"></script>-->
+
+    <!--<link rel="stylesheet" href="content/foundation.css">-->
+    <link href="Content/toastr.min.css" rel="stylesheet" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/angular-ui.min.css" rel="stylesheet" />
+
+    <script type="text/javascript" src="Scripts/vendor/jquery.js"></script>
+    <script type="text/javascript" src="Scripts/vendor/custom.modernizr.js"></script>
+    <script type="text/javascript" src="Scripts/toastr.min.js"></script>
+    <script type="text/javascript" src="Scripts/bootstrap.min.js"></script>
+
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-resource.js"></script>
+    <script src="Scripts/angular-ui.min.js"></script>    
+
+    <script src="JS/app.js"></script>
+    <script src="JS/directives/tabs.js"></script>
+    <script src="JS/directives/filterbox.js"></script>
+
+    <script src="JS/directives/workflow.js"></script>
+    <script src="JS/directives/topnav-panel.js"></script>
+
+    <title>ReachMee lite v1.0</title>
+
+
+    <style type="text/css">
+      body {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: #f5f5f5;
+      }
+
+      .form-signin {
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #e5e5e5;
+        -webkit-border-radius: 5px;
+           -moz-border-radius: 5px;
+                border-radius: 5px;
+        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+                box-shadow: 0 1px 2px rgba(0,0,0,.05);
+      }
+      .form-signin .form-signin-heading,
+      .form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+      .form-signin input[type="text"],
+      .form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+
+    </style>
+    <link href="Content/bootstrap-responsive.css" rel="stylesheet">
+
+    <script>
+        app.value('ui.config', {
+            // The ui-jq directive namespace
+            jq: {
+                // The Tooltip namespace
+                tooltip: {
+                    html: true,
+                    placement: 'right'
+                }
+            }
+        });
+</script>
+
+
+
+    <script>
+        function LoginPageCtrl($scope, CustomerDATA, ProjectDATA) {
+
+            $scope.$on('$routeChangeStart', function (scope, next, current) {
+            });
+            $scope.$on("$routeChangeSuccess", function (scope, next, current) {
+                $("#maincontainer").hide().fadeIn();
+            });
+        }
+    </script>
+
+    <script>
+        function LoginUserCtrl($scope, CustomerDATA) {
+            $scope.loginmodel = {
+                Password: '',
+                Login: ''
+            };
+            $scope.Login = function () {
+                var result = CustomerDATA.get($scope.loginmodel, function (r) {
+                    if (r.Result) { window.location = "/index.html" };
+                });
+            };
+        }
+    </script>
+
+    <script>
+        function CreateCustomerCtrl($scope, CustomerDATA, $q) {
+
+            $scope.model = {
+                Password: '',
+                Email: '',
+                Name: ''
+            };
+
+            $scope.confirmpassword = '';
+            $scope.Validation =
+            {
+                nameinuse: true
+            };
+
+            $scope.checkname = function (name) {
+                var result = CustomerDATA.get({ name: name }, function (r) {
+                    $scope.Validation.nameinuse = !r.Result;
+                });
+                return true;
+            };
+
+            $scope.Create = function () {
+
+                console.log($scope.form);
+
+                if (!$scope.form.$valid || $scope.Validation.nameinuse) { return; }
+
+                CustomerDATA.save($scope.model, function (info) {
+                });
+            };
+        }
+    </script>
+
+
+</head>
+<body>
+
+    <div ng-app="ReachmeeLightApp">
+
+        <section id="mainBox">
+            <div ng-controller="LoginPageCtrl" id="maincontainer" class="container">
+
+                <div class="row">
+                <!-- Main hero unit for a primary marketing message or call to action -->
+                <div class="hero-unit span10">                    
+                    <h2>Hi, aaaand hello to ReachmeeLight! {{ res.Name }} </h2>
+                    <p>the first really awesome HR-system with <b>blackjack and hookers</b>.<br /> You will defenetely enjoy using this system :)</p>
+                    <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+                </div>
+                    </div>
+
+                <!-- Example row of columns -->
+                <div class="row">
+                    <div class="span4" ng-controller="CreateCustomerCtrl">
+
+                      <form class="form-signin" name="form">
+                        <h2 class="form-signin-heading">Create company</h2>
+                        <input type="text" class="input-block-level" required placeholder="Company name" ng-model-onblur ng-model="model.Name" ui-validate="'checkname($value)'">
+                        <div><span class="text-error" ng-show='model.Name != ""  && Validation.nameinuse'>Name in use!</span></div>
+                          {{ Validation.nameinuse + model.Name }}
+                        <input type="text" class="input-block-level" required placeholder="Email address" ng-model="model.Email">
+                        <input type="password" name="password" class="input-block-level" required  placeholder="Password" ng-model="model.Password">
+                        <input type="password" name="confirmpassword" class="input-block-level" required placeholder="Confirm password" ng-model="confirmpassword" ui-validate="'$value==model.Password'"  ui-validate-watch="'model.Password'" >
+                        <div><span class="text-error" ng-show='model.Password != "" && confirmpassword != "" && form.confirmpassword.$error.validator'>Passwords do not match!</span><br />
+                        <br />{{form.$valid}}</div>
+                        <button class="btn btn-large btn-primary" type="submit" ng-click="Create()">Create</button>
+                      </form>
+
+                    </div>
+                    <div class="span4" ng-controller="LoginUserCtrl">
+
+                      <form class="form-signin" name="formsignin">
+                        <h2 class="form-signin-heading">Sign in</h2>
+                        <input type="text" class="input-block-level" required placeholder="Email address" ng-model="loginmodel.Login">
+                        <input type="password" class="input-block-level" required placeholder="Password" ng-model="loginmodel.Password">
+                        <label class="checkbox">
+                          <input type="checkbox" value="remember-me"> Remember me
+                        </label>
+                          <div style="height:110px;"></div>
+                        <button class="btn btn-large btn-primary" type="submit" ng-click="Login();" >Sign in</button>
+                      </form>
+
+                    </div>
+                </div>
+
+                <hr>
+
+                <footer>
+                    <p>&copy; globesoft solutions via TF & YS 2013</p>
+                </footer>
+
+            </div>
+            <!-- /container -->
+        </section>
+
+
+        <footer id="footer">
+        </footer>
+
+    </div>
+
+
+
+</body>
+</html>

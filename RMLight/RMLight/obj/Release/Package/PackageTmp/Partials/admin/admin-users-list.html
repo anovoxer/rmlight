@@ -1,0 +1,52 @@
+﻿<div class="row" id="funcMenu">
+    <div class="columns large-2">
+        <a class="button small large-12" href="#/projects/0">Add user</a>
+    </div>
+
+    <div class="columns large-7">
+        <ul class="button-group">
+            <li><a class="small button secondary disabled" href="#"><i class="icon-cogs"></i></a></li>
+            <li><a class="small button secondary disabled" href="#"><i class="icon-share"></i> Move to</a></li>
+            <li><a class="small button secondary disabled" href="#"><i class="icon-lock"></i> Lock</a></li>
+        </ul>
+    </div>
+
+    <div class="columns large-3">
+        <ul class="pagination">
+            <li class="arrow unavailable"><a href="">&laquo;</a></li>
+            <li class="current"><a href="">1</a></li>
+            <li><a href="">2</a></li>
+            <li class="unavailable"><a href="">&hellip;</a></li>
+            <li><a href="">43</a></li>
+            <li class="arrow"><a href="">&raquo;</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <filterbox apply="applyfilter(filtermessage)"></filterbox>
+
+    <div class="columns large-10">
+        <table class="mainTable table">
+            <thead>
+                <tr>
+                    <th ng-repeat="column in grid.columns" ng-class="column.Type">{{column.Name}}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="user in list" id="item_{{user.Id}}">
+                    <td class="cellCheckBox">
+                        <input type="checkbox" ng-model="user.selected"></td>
+                    <td class="cellId">{{user.Id}}</td>
+                    <td class="cellName"><a href="#/admin/user/{{user.Id}}">{{user.FirstName}}</a></td>
+                    <td class="cellName"><a href="#/admin/user/{{user.Id}}">{{user.LastName}}</a></td>
+                    <td class="cellName"><a href="#">{{user.Email}}</a></td>
+                    <td class="cellName"><a href="#">{{user.Password}}</a></td>                    
+                    <!--<td><a ng-click="delete()"><i class="icon-remove"></i></a></td>-->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

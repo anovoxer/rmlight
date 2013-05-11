@@ -6,7 +6,7 @@
         <div class="btn-group">
             <button type="button" class="btn"><i class="icon-cogs"></i></button>
             <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
-            <button type="button" class="btn"><i class="icon-trash"></i> Delete</button>
+            <button type="button" class="btn" ng-click="Delete();"><i class="icon-trash"></i> Delete</button>
         </div>
     </div>
 
@@ -25,14 +25,14 @@
                 <div class="thumbnail left">
                     <img src="images/jaro.png">
                 </div>
-                <h2 class="candidateTitle">Sivachenko Yaroslav <small><a href="#/candidates/{{candidate.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
+                <h2 class="candidateTitle">{{candidate.Name}} {{candidate.Lastname}} <small><a href="#/candidates/{{candidate.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
 
                 <h3>Basic</h3>
                 <ul class="unstyled">
                     <li><i class="icon-calendar"></i> 10.12.1979 (34 years)</li>
-                    <li><address><i class="icon-map-marker"></i> 123 Colonial Ave. Caprica City</address></li>
-                    <li class="email"><a href="mailto:{{model.Email}}"><i class="icon-envelope"></i> yark.smolk@gmail.com</a></li>
-                    <li><i class="icon-mobile-phone"></i> 050 1224412</li>
+                    <li><address><i class="icon-map-marker"></i> {{candidate.Address}}</address></li>
+                    <li class="email"><a href="mailto:{{candidate.Email}}"><i class="icon-envelope"></i> {{candidate.Email}}</a></li>
+                    <li><i class="icon-mobile-phone"></i> {{candidate.Phone}}</li>
                 </ul>
 
                 <!--

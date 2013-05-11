@@ -1,5 +1,5 @@
 ﻿//angular.module('components', []).
-  app.directive('tabs', function () {
+  app.directive('tabs1', function () {
       return {
           restrict: 'E',
           transclude: true,
@@ -30,7 +30,7 @@
                             '</li>' +
                         '</ul>' +            
                     '</div>' +
-                    '<div class="columns large-10"><div class="navPan" ng-transclude></div></div>' +
+                    '<div class="columns large-10 cntrWrapper"><hr><div class="navPan" ng-transclude></div></div>' +
                     '</div>',
 
           template_old:
@@ -45,7 +45,7 @@
           replace: true
       };
   }).
-  directive('pane', function () {
+  directive('pane1', function () {
       return {
           require: '^tabs',
           restrict: 'E',

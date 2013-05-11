@@ -1,20 +1,18 @@
-﻿<header id="header">
-    <div class="contain-to-grid fixed">
-    <nav class="top-bar">
-        <ul class="title-area">
+﻿    <nav class="top-bar row">
+        <ul class="title-area large-2 columns">
             <li class="name">
                 <h1><a href="index.html">ReachMee</a></h1>
             </li>
             <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
         </ul>
-        <section class="top-bar-section">
+        <section class="top-bar-section large-10 columns">
            <ul class="left">
                <li class="divider"></li>
-               <li><a href="#/projects">Projects</a></li>
-               <li><a href="#/candidates">Candidates</a></li>
-               <li><a href="#">Management</a></li>
+               <li activelink="#/projects"><a href="#/projects">Projects</a></li>
+               <li activelink="#/candidates"><a href="#/candidates">Candidates</a></li>
+               <li activelink="#/management"><a href="#">Management</a></li>
            </ul>
-            <ul>
+            <ul class="left">
                 <li class="has-form">
                    <form id="search">
                        <div class="row collapse">
@@ -29,17 +27,15 @@
                    </form>
                 </li>
             </ul>
-            <ul class="right">
+            <ul class="right" ng-controller="SecurityCtrl">
                 <li class="divider"></li>
                 <li class="has-dropdown"><a href="#">Admin</a>
                     <ul class="dropdown">
                         <li><a href="#">Change password</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="#" ng-click="logout();" >Logout</a></li>
                     </ul>
 
                 </li>
             </ul>
         </section>
     </nav>
-    </div>
-</header>
