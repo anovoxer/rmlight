@@ -205,11 +205,6 @@ table th[class*="span"],
   &.span11    { .tableColumns(11); }
   &.span12    { .tableColumns(12); }
 
-  &.cellCheckBox {
-    padding: 8px 0 8px;
-    width: 39px;
-    text-align: center;
-  }
 
 }
 
@@ -247,5 +242,82 @@ table th[class*="span"],
   }
   &.info:hover > td {
     background-color: darken(@infoBackground, 5%);
+  }
+}
+
+// Main table
+// @yaroslav.sivachenko
+.mainTable {
+  border: 1px solid @tableBorder;
+  input[type="radio"], input[type="checkbox"] {
+    margin: 0;
+  }
+  thead {
+    background: @tableHeaderBackgroundHighlight;
+    background-image: -webkit-gradient(linear,left bottom,left top,from(@tableHeaderBackground),to(@tableHeaderBackgroundHighlight));
+    background-image: -webkit-linear-gradient(bottom,@tableHeaderBackground,@tableHeaderBackgroundHighlight);
+    background-image: -moz-linear-gradient(bottom,@tableHeaderBackground,@tableHeaderBackgroundHighlight);
+    background-image: -o-linear-gradient(bottom,@tableHeaderBackground,@tableHeaderBackgroundHighlight);
+    background-image: linear-gradient(to top,@tableHeaderBackground,@tableHeaderBackgroundHighlight);
+    color: @gray;
+
+    th, td {
+      font-weight: normal;
+      line-height: 16px;
+
+      &.cellCheckBox {
+        text-align: center;
+        width: 39px;
+        padding: 0;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  tbody {
+
+    tr {
+      .rowActions {
+        font-size: 85%;
+        display: none;
+
+        .remove a {
+          color: @pink;
+        }
+      }
+
+      &:hover {
+        .rowActions {
+          display: block;
+        }
+      }
+
+      td {
+        vertical-align: middle;
+
+        &.cellName {
+          vertical-align: top;
+          width: 45%;
+        }
+
+        &.cellCheckBox {
+          text-align: center;
+          width: 39px;
+          padding: 0;
+        }
+
+        abbr {
+          border: none;
+          cursor: auto;
+        }
+
+        .secondary {
+          font-size: 85%;
+          color: @grayLight;
+        }
+      }
+
+    }
+
   }
 }

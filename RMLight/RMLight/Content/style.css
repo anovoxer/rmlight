@@ -1922,12 +1922,6 @@ table th[class*="span"],
   width: 924px;
   margin-left: 0;
 }
-.table td.cellCheckBox,
-.table th.cellCheckBox {
-  padding: 8px 0 8px;
-  width: 39px;
-  text-align: center;
-}
 .table tbody tr.success > td {
   background-color: #dff0d8;
 }
@@ -1951,6 +1945,64 @@ table th[class*="span"],
 }
 .table-hover tbody tr.info:hover > td {
   background-color: #c4e3f3;
+}
+.mainTable {
+  border: 1px solid #dddddd;
+}
+.mainTable input[type="radio"],
+.mainTable input[type="checkbox"] {
+  margin: 0;
+}
+.mainTable thead {
+  background: #f9f9f9;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ececec), to(#f9f9f9));
+  background-image: -webkit-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: -moz-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: -o-linear-gradient(bottom, #ececec, #f9f9f9);
+  background-image: linear-gradient(to top, #ececec, #f9f9f9);
+  color: #555555;
+}
+.mainTable thead th,
+.mainTable thead td {
+  font-weight: normal;
+  line-height: 16px;
+}
+.mainTable thead th.cellCheckBox,
+.mainTable thead td.cellCheckBox {
+  text-align: center;
+  width: 39px;
+  padding: 0;
+  vertical-align: middle;
+}
+.mainTable tbody tr .rowActions {
+  font-size: 85%;
+  display: none;
+}
+.mainTable tbody tr .rowActions .remove a {
+  color: #c3325f;
+}
+.mainTable tbody tr:hover .rowActions {
+  display: block;
+}
+.mainTable tbody tr td {
+  vertical-align: middle;
+}
+.mainTable tbody tr td.cellName {
+  vertical-align: top;
+  width: 45%;
+}
+.mainTable tbody tr td.cellCheckBox {
+  text-align: center;
+  width: 39px;
+  padding: 0;
+}
+.mainTable tbody tr td abbr {
+  border: none;
+  cursor: auto;
+}
+.mainTable tbody tr td .secondary {
+  font-size: 85%;
+  color: #999999;
 }
 [class^="icon-"],
 [class*=" icon-"] {
@@ -7193,6 +7245,11 @@ body {
   margin-right: 10px;
   float: left;
 }
+.projectData .thumbnail.right,
+.candidateData .thumbnail.right {
+  margin-left: 10px;
+  float: right;
+}
 .projectData .form-actions,
 .candidateData .form-actions {
   clear: left;
@@ -7221,4 +7278,43 @@ body {
 }
 .infoBox .dl-horizontal dt {
   width: 50px;
+}
+.infoBox.candidateCardList {
+  padding: 25px 0px 0px;
+}
+.candidateCardList li {
+  display: block;
+  position: relative;
+  padding-left: 28px;
+  padding-right: 4px;
+  background-color: #F3F3F3;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 1px;
+}
+.candidateCardList li a {
+  color: #333333;
+  display: block;
+}
+.candidateCardList li a:hover {
+  text-decoration: none;
+}
+.candidateCardList li a span {
+  font-size: 85%;
+}
+.candidateCardList li i {
+  position: absolute;
+  line-height: 41px;
+  font-size: 17px;
+  margin-left: -25px;
+  color: #999999;
+}
+.candidateCardList li img {
+  position: absolute;
+  top: 0;
+  left: 2px;
+  height: 100%;
+  display: none;
+}
+.candidateCardList li:hover {
+  background-color: #eeeeee;
 }

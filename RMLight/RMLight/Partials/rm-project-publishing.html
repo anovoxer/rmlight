@@ -3,6 +3,7 @@
     <div class="span7">
         <div class="btn-group">
             <button type="button" class="btn"><i class="icon-cogs"></i></button>
+            <button type="button" class="btn"><i class="icon-plus"></i> Candidate</button>
             <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
             <button type="button" class="btn"><i class="icon-tags"></i> Note</button>
             <button type="button" class="btn"><i class="icon-remove"></i> Remove</button>
@@ -20,45 +21,138 @@
     </div>
 
     <div class="span10">
-        <table class="mainTable table table-striped table-bordered table-hover">
+        <table class="mainTable table table-striped table-hover">
             <thead>
             <tr>
-                <th class="cellCheckBox"><input type="checkbox"></th>
+                <td class="cellCheckBox"><input type="checkbox"></th>
                 <th class="cellId">Id</th>
-                <th class="cellName">Name</th>
-                <th>Date Added</th>
+                <th class="cellName">Candidate</th>
+                <th class="">Source</th>
+                <th class="">Status</th>
+                <th class=""><i class="icon-tags"></i></th>
+                <th class="cellDate">Date</th>
             </tr>
             </thead>
             <tbody>
             <tr>
                 <td class="cellCheckBox"><input type="checkbox"></td>
-                <td>4</td>
-                <td><a href="project_candidate.html">Wayne Rooney</a></td>
-                <td>12.02.2013</td>
-            </tr>
-            <tr>
-                <td class="cellCheckBox"><input type="checkbox"></td>
-                <td>3</td>
-                <td><a href="candidate.html">Patrice Evra</a></td>
-                <td>12.02.2013</td>
-            </tr>
-            <tr>
-                <td class="cellCheckBox"><input type="checkbox"></td>
-                <td>2</td>
-                <td><a href="candidate.html">Rio Ferdinant</a></td>
-                <td>12.02.2013</td>
-            </tr>
-            <tr>
-                <td class="cellCheckBox"><input type="checkbox"></td>
-                <td>1</td>
-                <td><a href="candidate.html">David De Gea</a></td>
-                <td>12.02.2013</td>
-            </tr>
-            <tr>
-                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">4</td>
+                <td class="cellName">
+                    <a href="project_candidate.html">Wayne Rooney</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                         |
+                        <span class="note"><a href="#">add note</a></span>
+                         |
+                        <span class="remove"><a href="#">remove</a></span>
+                    </div>
+                </td>
+                <td>external</td>
+                <td>
+                    new
+                    <br/><abbr class="secondary" title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                </td>
                 <td>0</td>
-                <td><a href="candidate.html">Chicharito Havier Hernandez</a></td>
-                <td>12.02.2013</td>
+                <td class="cellDate">
+                    <abbr title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                    <br/><span class="secondary">Arrived</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">3</td>
+                <td class="cellName">
+                    <a href="candidate.html">Patrice Evra</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="remove"><a href="#">remove</a></span>
+                    </div>
+                </td>
+                <td>external</td>
+                <td>
+                    new
+                    <br/><abbr class="secondary" title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                </td>
+                <td>0</td>
+                <td class="cellDate">
+                    <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                    <br/><span class="secondary">Updated</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">2</td>
+                <td class="cellName">
+                    <a href="candidate.html">Rio Ferdinant</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="remove"><a href="#">remove</a></span>
+                    </div>
+                </td>
+                <td>manual</td>
+                <td>
+                    refused
+                    <br/><abbr class="secondary" title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                </td>
+                <td>0</td>
+                <td class="cellDate">
+                    <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                    <br/><span class="secondary">Updated</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">1</td>
+                <td class="cellName">
+                    <a href="candidate.html">David De Gea</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="remove"><a href="#">remove</a></span>
+                    </div>
+                </td>
+                <td>manual</td>
+                <td>
+                    pending
+                    <br/><abbr class="secondary" title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                </td>
+                <td>0</td>
+                <td class="cellDate">
+                    <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                    <br/><span class="secondary">Updated</span>
+                </td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">0</td>
+                <td class="cellName">
+                    <a href="candidate.html">Chicharito Havier Hernandez</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="remove"><a href="#">remove</a></span>
+                    </div>
+                </td>
+                <td>manual</td>
+                <td>
+                    new
+                    <br/><abbr class="secondary" title="2013.11.08 3:28:44 PM">2013.11.08</abbr>
+                </td>
+                <td>0</td>
+                <td class="cellDate">
+                    <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                    <br/><span class="secondary">Created</span>
+                </td>
             </tr>
             </tbody>
         </table>
