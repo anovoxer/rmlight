@@ -5,7 +5,7 @@ using System.Web;
 
 namespace RMLight.Models
 {
-    public class Project
+    public class Project : StateInfo
     {
         public int Id { get; set; }
         public string Name { get; set; }

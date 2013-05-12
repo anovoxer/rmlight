@@ -1,10 +1,70 @@
-﻿<div>
+﻿
+<!-- TODO: replace static data with vars -->
+<div class="row" id="funcMenu">
+    <div class="span2"></div>
 
-    <div class="span2">Name:</div><div class="span3"><input type="text" ng-model="model.Name" /></div>
-    <div class="span2">Email:</div><div class="span3"><input type="text" ng-model="model.Email" /></div><br />
-    <div class="span2">Phone:</div><div class="span3"><input type="text" ng-model="model.Phone" /></div><br />
-    <div class="span2">Rating:</div><div class="span3"><input type="text" ng-model="model.Rating" /></div><br />    
-    
-    <div class="span2 btn"  ng-click="Save()">Save</div>
+    <div class="span7">
+        <div class="btn-group" ng-show="candidate.Id > 0">
+            <button type="button" class="btn"><i class="icon-cogs"></i></button>
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-click="PopulateProjects();"><i class="icon-share"></i> Apply to</button>
+                <ul class="dropdown-menu">
+                    <li>
+                    <div>
+                        <input ng-model="projectsfilter"  onclick="stopevent(event);" />
+                    </div>
+                    </li>
+                    <li ng-repeat="project in projectslist | filter:projectsfilter | limitTo:'15'"><a ng-click="ApplyCandidateToPorject(project.Id);" >{{project.Id}} : {{project.Name}}</a></li>
+                </ul>                
+            <button type="button" class="btn" ng-click="Delete();" ><i class="icon-trash"></i> Delete</button>
 
+        </div>
+    </div>
+    <div class="span3"></div>
+</div>
+
+<div class="row">
+    <div class="span2 sideMenu">
+        <ul class="nav nav-side">
+            <li class="active"><a href="#">Info</a></li>
+        </ul>
+    </div>
+    <div class="span10 profileBox">
+        <div class="row">
+            <div class="span10 candidateData">
+                <form>
+                <div class="thumbnail left">
+                    <img src="images/jaro.png">
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-user"></i></span>
+                    <input type="text" class="input-small" ng-model="candidate.Name" required>
+                    <input type="text" class="input-small" ng-model="candidate.Lastname" required>
+                </div>
+
+                <h3>Basic</h3>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-calendar"></i></span>
+                    <input type="date" value="10.12.1979"> <!-- TODO: assign to normal datamodel -->
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-map-marker"></i></span>
+                    <input type="text" ng-model="candidate.Address">
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-envelope"></i></span>
+                    <input type="email" ng-model="candidate.Email" required>
+                </div>
+                <div class="input-prepend">
+                    <span class="add-on"><i class="icon-phone"></i></span>
+                    <input type="text" ng-model="candidate.Phone">
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-success" ng-click="Save();">Save</button>
+                    <button type="button" class="btn" ng-click="Cancel();">Cancel</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>

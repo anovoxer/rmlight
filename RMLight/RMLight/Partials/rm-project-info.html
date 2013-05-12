@@ -5,7 +5,7 @@
             <button class="btn"><i class="icon-cogs"></i></button>
             <button class="btn"><i class="icon-plus"></i> Candidate</button>
             <button class="btn"><i class="icon-lock"></i> Lock</button>
-            <button class="btn"><i class="icon-trash"></i> Remove</button>
+            <button class="btn" ng-click="Delete();"><i class="icon-trash"></i> Remove</button>
         </div>
     </div>
     <div class="span3"></div>
@@ -20,7 +20,7 @@
     <div class="span10" ng-controller="ProjectInfoCtrl">
         <!-- TODO: 2Taras: edit link is here!! >>> -->
         <!-- TODO: 2Taras: how to use data from project fields?! >>> -->
-        <h2 class="projectTitle">{{model.Name}} <small><a href="#"><i class="icon-edit"></i> edit</a></small></h2>
+        <h2 class="projectTitle">{{model.Name}} <small><a href="#/projects/info/{{model.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
         <div class="row">
             <div class="span6 projectData">
                 <h3>Basic</h3>

@@ -1,69 +1,69 @@
-﻿<div class="span6">
+﻿<div class="row" id="funcMenu">
+    <div class="span2"></div>
+    <div class="span7">
+        <div class="btn-group">
+            <button class="btn"><i class="icon-cogs"></i></button>
+            <button class="btn"><i class="icon-plus"></i> Candidate</button>
+            <button class="btn"><i class="icon-lock"></i> Lock</button>
+            <button class="btn" ng-click="Delete();"><i class="icon-trash"></i> Remove</button>
+        </div>
+    </div>
+    <div class="span3"></div>
+</div>
 
+<div class="row">
+    <div class="span2">
+        <projectmenu />
+        <!-- template located under: /partials/ui-elements/t-menu-project -->
+    </div>
 
-    <form class="custom">
-        <fieldset>
-            <legend>Basic</legend>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectname" class="right inline">Project name:</label>
-                </div>
-                <div class="columns large-6">
-                    <input type="text" id="projectname" name="projectname" ng-model="model.Name" placeholder="Project name...">
-                </div>
-                <div class="columns large-4"></div>
-            </div>
+    <div class="span10" ng-controller="ProjectInfoCtrl">
+        <!-- TODO: 2Taras: edit link is here!! >>> -->
+        <!-- TODO: 2Taras: how to use data from project fields?! >>> -->
+        <h2 class="projectTitle">{{model.Name}} <small><a href="#/projects/info/{{model.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
+        <div class="row">
+            <div class="span6 projectData">
+                <h3>Basic</h3>
+                <ul class="unstyled">
+                    <li>
+                        <p class="projectField">{{model.Header}}</p>
+                        <small> - job title. This is public field</small>
+                    </li>
+                    <li>
+                        <p class="projectField">{{model.JobDescription}}</p>
+                        <small> - job description. Few words about current project</small>
+                    </li>
+                </ul>
 
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projecttitle" class="right inline">Project title:</label>
-                </div>
-                <div class="columns large-6">
-                    <input type="text" id="projecttitle" name="projecttitle" ng-model="model.Header" placeholder="Project title...">
-                </div>
-                <div class="columns large-4"></div>
+                <!-- TODO: lists should be connected to data model -->
+                <h3>Specialization</h3>
+                <ul class="unstyled">
+                    <li>
+                        <p class="projectField">IT area</p>
+                        <small> - area. Specify area for project</small>
+                    </li>
+                    <li>
+                        <p class="projectField">Head office workers</p>
+                        <small> - category</small>
+                    </li>
+                </ul>
             </div>
+            <div class="span4">
+                <!-- TODO: info box should be connected to data model -->
+                <div class="infoBox">
+                    <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
+                    <dl class="dl-horizontal">
+                        <dt>status:</dt>
+                        <dd>open</dd>
+                        <dt>created:</dt>
+                        <!-- TODO: link's to user account -->
+                        <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        <dt>updated:</dt>
+                        <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
 
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectdesc" class="right inline">Project description:</label>
-                </div>
-                <div class="columns large-6">
-                    <textarea name="projectdesc" id="projectdesc" rows="10" ng-model="model.JobDescription" placeholder="Project description"></textarea>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-        </fieldset>
-        <fieldset>
-            <legend>Classification</legend>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectarea" class="right inline">Area:</label>
-                </div>
-                <div class="columns large-6">
-                    <select name="projectarea" id="projectarea" class="small" ng-model="model.Area">
-                        <option disabled selected>Select area...</option>
-                        <option value="1">test 1</option>
-                        <option value="2">test 2</option>
-                    </select>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-            <div class="row">
-                <div class="columns large-3">
-                    <label for="projectcat" class="right inline">Category:</label>
-                </div>
-                <div class="columns large-6">
-                    <select name="projectcat" id="projectcat" class="medium" ng-model="model.Category">
-                        <option disabled selected>Select category...</option>
-                        <option value="1">test 1</option>
-                        <option value="2">test 2</option>
-                    </select>
-                </div>
-                <div class="columns large-4"></div>
-            </div>
-        </fieldset>
-        <button type="submit" class="button small"  ng-click="Save()">Save</button>
-    </form>
-
+    </div>
 </div>

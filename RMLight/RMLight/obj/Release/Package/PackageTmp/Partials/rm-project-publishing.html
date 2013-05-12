@@ -1,0 +1,67 @@
+﻿<div class="row" id="funcMenu">
+    <div class="span2"></div>
+    <div class="span7">
+        <div class="btn-group">
+            <button type="button" class="btn"><i class="icon-cogs"></i></button>
+            <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
+            <button type="button" class="btn"><i class="icon-tags"></i> Note</button>
+            <button type="button" class="btn"><i class="icon-remove"></i> Remove</button>
+        </div>
+    </div>
+    <div class="span3">
+        <pagination on-select-page="setPage" num-pages="pagesCount" current-page="currentPage" class="pagination pagination-right" first-text="&laquo;" last-text="&raquo;" max-size="4" boundary-links="false" direction-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+    </div>
+</div>
+
+<div class="row">
+    <div class="span2">
+        <projectmenu />
+        <!-- template located under: /partials/ui-elements/t-menu-project -->
+    </div>
+
+    <div class="span10">
+        <table class="mainTable table table-striped table-bordered table-hover">
+            <thead>
+            <tr>
+                <th class="cellCheckBox"><input type="checkbox"></th>
+                <th class="cellId">Id</th>
+                <th class="cellName">Name</th>
+                <th>Date Added</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td>4</td>
+                <td><a href="project_candidate.html">Wayne Rooney</a></td>
+                <td>12.02.2013</td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td>3</td>
+                <td><a href="candidate.html">Patrice Evra</a></td>
+                <td>12.02.2013</td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td>2</td>
+                <td><a href="candidate.html">Rio Ferdinant</a></td>
+                <td>12.02.2013</td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td>1</td>
+                <td><a href="candidate.html">David De Gea</a></td>
+                <td>12.02.2013</td>
+            </tr>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td>0</td>
+                <td><a href="candidate.html">Chicharito Havier Hernandez</a></td>
+                <td>12.02.2013</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

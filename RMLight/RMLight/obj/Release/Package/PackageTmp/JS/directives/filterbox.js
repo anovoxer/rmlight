@@ -24,14 +24,11 @@
             }
         },
 
-        template: '<div class="columns large-2 sideMenu">' +
-                      '<ul class="side-nav">' +
-                          '<li class="divider"></li>' +
-                          '<li ng-repeat="filter in filters" ng-class="{active:filter.selected}" >' +
-                          '<a href="" ng-click="select(filter)">{{filter.title}}</a>' +
-                          '</li>' +
-                      '</ul>' +
-                  '</div>',
+        template:  '<ul class="nav nav-side">' +
+                       '<li ng-repeat="filter in filters" ng-class="{active:filter.selected}" >' +
+                       '<a href="" ng-click="select(filter)">{{filter.title}}</a>' +
+                       '</li>' +
+                   '</ul>',
 
         replace: true
     };

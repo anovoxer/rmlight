@@ -6,11 +6,19 @@
     <div class="span7">
         <div class="btn-group" ng-show="candidate.Id > 0">
             <button type="button" class="btn"><i class="icon-cogs"></i></button>
-            <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
+                <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-click="PopulateProjects();"><i class="icon-share"></i> Apply to</button>
+                <ul class="dropdown-menu">
+                    <li>
+                    <div>
+                        <input ng-model="projectsfilter"  onclick="stopevent(event);" />
+                    </div>
+                    </li>
+                    <li ng-repeat="project in projectslist | filter:projectsfilter | limitTo:'15'"><a ng-click="ApplyCandidateToPorject(project.Id);" >{{project.Id}} : {{project.Name}}</a></li>
+                </ul>                
             <button type="button" class="btn" ng-click="Delete();" ><i class="icon-trash"></i> Delete</button>
+
         </div>
     </div>
-
     <div class="span3"></div>
 </div>
 

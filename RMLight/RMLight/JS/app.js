@@ -31,7 +31,8 @@ app.config(['$routeProvider', function ($routeProvider) {
           when('/projects/:projectid', { templateUrl: 'partials/rm-project.html', controller: ProjectSupervisor }).
           when('/projects', { templateUrl: 'partials/rm-project-list.html', controller: ProjectListCtrl, bread: paths.projects }).
           when('/projects/dashboard/:projectid', { templateUrl: 'partials/rm-project-dashboard.html', controller: null, bread: paths.projectdash }).
-          when('/projects/info/:projectid', { templateUrl: 'partials/rm-project-info.html', controller: null, bread: paths.projectsinfo }).
+          when('/projects/info/:projectid', { templateUrl: 'partials/rm-project-info.html', controller: ProjectInfoCtrl, bread: paths.projectsinfo }).
+          when('/projects/info/:projectid/edit', { templateUrl: 'partials/rm-project-info-edit.html', controller: ProjectInfoCtrl, bread: paths.projectsinfo }).
           when('/projects/procedure/:projectid', { templateUrl: 'partials/rm-project-procedure.html', controller: null }).
           when('/projects/publishing/:projectid', { templateUrl: 'partials/rm-project-publishing.html', controller: null }).
 
@@ -104,9 +105,10 @@ function SecurityCtrl($scope, $route, $routeParams, SecurityDATA) {
     $scope.logout = function () { SecurityDATA.logout({}, function () { console.log("done logout"); window.location = "/"; }); }
 };
 
-function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDATA) {
+function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDATA, ProjectDATA) {
     var id = $routeParams.candidateid;
     $scope.candidate = id == 0 ? {} : CandidateDATA.get({ id: id });
+    $scope.projectslist = [];
 
     $scope.Save = function () {
         if (id == 0) {
@@ -134,6 +136,14 @@ function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDAT
                 toastr.success('Candidate ' + info.Name + ' was removed from system.');
             });
         };
+    };
+
+    $scope.PopulateProjects = function () {
+        $scope.projectslist = ProjectDATA.query();
+    };
+
+    $scope.ApplyCandidateToPorject = function (projectId) {
+        alert(projectId);
     };
 };
 
@@ -200,25 +210,40 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
     });
 };
 
-function ProjectInfoCtrl($scope, $route, $routeParams, ProjectDATA, DataContainer) {
+function ProjectInfoCtrl($scope, $route, $routeParams, $location, ProjectDATA, DataContainer) {
     var id = $routeParams.projectid;
     $scope.model = id == 0 ? {} : ProjectDATA.get({ id: id }, function (data) { $scope.GlobalController.projectname = data.Name; });
 
     $scope.Save = function () {
         if (id == 0) {
             ProjectDATA.save($scope.model, function (info) {
-                $scope.setProjectId(info.Id);
+                //$scope.setProjectId(info.Id);
+                $location.path("/projects/info/" + info.Id);
                 toastr.success('Project ' + info.Name + ' created')
-                //console.log(info);
             });
         } else {
             ProjectDATA.update({ id: id }, $scope.model, function (info) {
-                $scope.setProjectId(info.Id);
+                //$scope.setProjectId(info.Id);
+                $location.path("/projects/info/" + info.Id);
                 toastr.success('Project ' + info.Name + ' saved')
-                //console.log(info);
             });
         }
     };
+
+    $scope.Cancel = function () {
+        $location.path("/projects" + ($scope.model.Id > 0 ? "/info/" + $scope.model.Id : ""));
+    };
+
+    $scope.Delete = function () {
+        var confirm = window.confirm("Remove project information?");
+        if (confirm) {
+            ProjectDATA.delete({ id: $scope.model.Id }, function (info) {
+                $location.path("/projects");
+                toastr.success('Project ' + info.Name + ' was removed from system.');
+            });
+        };
+    };
+
 };
 
 function ProjectSupervisor($scope, $route, $routeParams, ProjectDATA) {
@@ -319,3 +344,7 @@ $(function () {
         "extendedTimeOut": 1000
     }
 });
+
+
+
+function stopevent(e) { var e = e ? e : window.event; e.preventDefault(); e.stopPropagation(); return false; };

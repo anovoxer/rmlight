@@ -1,53 +1,42 @@
 ﻿<div class="row" id="funcMenu">
-    <div class="columns large-2">
-        <a class="button small large-12" href="#">Add new</a>
+    <div class="span2">
+        <a class="btn btn-block btn-primary" href="#/candidates/0/edit">Add new</a>
     </div>
 
-    <div class="columns large-7">
-        <ul class="button-group">
-            <li><a class="small button secondary disabled"><i class="icon-cogs"></i></a></li>
-            <li><a class="small button secondary disabled"><i class="icon-share"></i> Move</a></li>
-            <li><a class="small button secondary disabled"><i class="icon-flag"></i> Status</a></li>
-            <li><a class="small button secondary disabled"><i class="icon-tags"></i> Note</a></li>
-            <li><a class="small button secondary disabled"><i class="icon-trash"></i> Delete</a></li>
-        </ul>
+    <div class="span7">
+        <div class="btn-group">
+            <button type="button" class="btn"><i class="icon-cogs"></i></button>
+            <button type="button" class="btn"><i class="icon-share"></i> Move to</button>
+            <button type="button" class="btn"><i class="icon-trash"></i> Delete</button>
+        </div>
     </div>
-
-    <div class="columns large-3">
-        <ul class="pagination">
-            <li class="arrow unavailable"><a href="">&laquo;</a></li>
-            <li class="current"><a href="">1</a></li>
-            <li><a href="">2</a></li>
-            <li class="unavailable"><a href="">&hellip;</a></li>
-            <li><a href="">43</a></li>
-            <li class="arrow"><a href="">&raquo;</a></li>
-        </ul>
+    <!-- TODO: 2Taras: seems that pagination is not working for candidates... -->
+    <div class="span3">
+        <pagination on-select-page="setPage" num-pages="pagesCount" current-page="currentPage" class="pagination pagination-right" first-text="&laquo;" last-text="&raquo;" max-size="4" boundary-links="false" direction-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
     </div>
 </div>
 <div class="row">
-    <div class="columns large-2">
-        <!-- Filterbox or something -->
-        <ul class="side-nav">
-            <!-- Default lists -->
-            <li class="divider"></li>
+    <div class="span2 sideMenu">
+        <!-- TODO: hardcode is here -->
+        <ul class="nav nav-side">
             <li class="active"><a href="#">All</a></li>
             <li><a href="#">Favorites</a></li>
-            <li class="divider"></li>
-            <!-- Custom lists  -->
-            <li><a href="#">Tech custom</a></li>
-            <li><a href="#">Lang custom</a></li>
-            <li><a href="#">Big tits</a></li>
+            <li class="nav-header">custom</li>
+            <li><a href="#">Tech</a></li>
+            <li><a href="#">Lang</a></li>
+            <li><a href="#">Boobs</a></li>
+
         </ul>
     </div>
-    <div class="columns large-10 cntrWrapper" ng-controller="CandidateListCtrl">
-        <table class="table mainTable">
+    <div class="span10" ng-controller="CandidateListCtrl">
+        <table class="mainTable table table-striped table-bordered table-hover">
             <thead>
-            <tr><th></th><th>id</th><th>name</th></tr>
+            <tr><th class="cellCheckBox"></th><th>id</th><th>name</th></tr>
             </thead>
             <tr ng-repeat="candidate in list">
-                <td><input type="checkbox" ng-model="candidate.selected"></td>
+                <td class="cellCheckBox"><input type="checkbox" ng-model="candidate.selected"></td>
                 <td>{{candidate.Id}}</td>
-                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}}</a></td>
+                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}} {{candidate.Lastname}}</a></td>
             </tr>
         </table>
     </div>

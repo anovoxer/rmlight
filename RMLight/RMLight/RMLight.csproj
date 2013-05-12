@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\StateInfo.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Project.cs" />
@@ -202,11 +203,6 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\font-awesome-ie7.min.css" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Content\fontawesome-webfont.svg" />
-    <Content Include="Content\foundation.css" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -283,6 +279,10 @@
     <Content Include="JS\services\breadcrumb.js" />
     <Content Include="MSBuild\doit.xml" />
     <Content Include="Partials\admin\admin-users-list.html" />
+    <Content Include="Partials\rm-project-candidate-add.html" />
+    <Content Include="Partials\rm-project-candidate.html" />
+    <Content Include="Partials\rm-project-candidates.html" />
+    <Content Include="Partials\rm-project-info-edit.html" />
     <Content Include="Partials\rm-project-procedure.html" />
     <Content Include="Partials\rm-project-publishing.html" />
     <Content Include="Partials\rm-project-dashboard.html" />
@@ -489,10 +489,6 @@
     <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="JS\items.json" />
-    <Content Include="Content\fontawesome-webfont.eot" />
-    <Content Include="Content\fontawesome-webfont.ttf" />
-    <Content Include="Content\fontawesome-webfont.woff" />
-    <Content Include="Content\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Anovoxer-6.hosting.parking.ru - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\anovoxer-server.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />

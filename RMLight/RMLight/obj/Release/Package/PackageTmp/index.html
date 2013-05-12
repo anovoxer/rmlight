@@ -14,7 +14,7 @@
     <script src="Scripts/jquery-1.9.1.min.js"></script>
     <!--<script src="Scripts/bootstrap.js"></script>-->
 
-    <link rel="stylesheet" href="content/foundation.css">
+    <link rel="stylesheet" href="content/style.css">
     <link href="Content/toastr.min.css" rel="stylesheet" />
     <link href="Content/angular-ui.min.css" rel="stylesheet" />
     <!--<link href="Content/bootstrap.min.css" rel="stylesheet" />-->
@@ -40,11 +40,10 @@
     <script src="JS/directives/tabs.js"></script>
     <script src="JS/directives/filterbox.js"></script>
     <script src="JS/directives/activemenu.js"></script>
+    <script src="JS/services/breadcrumb.js"></script>
 
     <script src="JS/directives/workflow.js"></script>
     <script src="JS/directives/topnav-panel.js"></script>
-
-    <link href="Content/font-awesome.min.css" rel="stylesheet" />
     
 
     <script>
@@ -56,6 +55,10 @@
             });
         }
 
+        app.controller("GlobalController", function ($scope) {
+            this.projectname = '';
+            return $scope.GlobalController = this;
+        });
         
     </script>
 
@@ -66,30 +69,29 @@
     <!-- TODO: somewhere in app.js we need to check after first landing on index.html is we are authorized, otherwise redirect us to */hi.html -->
 
 </head>
-<body ng-app="ReachmeeLightApp">
+<body ng-app="ReachmeeLightApp" ng-controller="GlobalController">
         <header id="header">
-            <div class="contain-to-grid fixed">
+            <div class="navbar navbar-fixed-top navbar-inverse">
                 <topnavigation />                
             </div>
-            <div activelink="test">sss</div>
         </header>
 
-        <section id="histMenu">
+        
+        <section id="histMenu" class="container">
             <div class="row">
-                <div class="columns large-12">
-                    <ul class="breadcrumbs">
-                        <li><a href="index.html">home</a></li>
-                    </ul>
+                <div class="span8">
+                    <breadcrumb></breadcrumb>
                 </div>
             </div>
         </section>
 
-        <section id="mainBox" ng-controller="MainDCController">
-            <div ng-view></div>
+        <section id="mainBox" ng-controller="MainDCController" class="container">
+            <div ng-view>                
+            </div>
         </section>
 
 
-        <footer id="footer">
+        <footer id="footer" class="container">
         </footer>
 </body>
 </html>
