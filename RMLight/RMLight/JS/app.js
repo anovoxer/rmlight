@@ -69,7 +69,11 @@ app.factory('CandidateDATA', function ($resource) {
 });
 
 app.factory('ProjectDATA', function ($resource) {
-    return $resource('/api/project/:id', { id: '@id' }, { update: { method: 'PUT' }, getpagecount: { method: 'GET', params: { returncount: true }, isArray: false } });
+    return $resource('/api/project/:id', { id: '@id' }, {
+        update: { method: 'PUT' },
+        getpagecount: { method: 'GET', params: { returncount: true }, isArray: false },
+        getbycandidateid: { method: 'GET', params: { returncount: true }, isArray: false }
+    });
 });
 
 app.factory('ApplicationDATA', function ($resource) {

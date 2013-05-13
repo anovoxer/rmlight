@@ -65,6 +65,22 @@
                     </dl>
                 </div>
             </div>
+
+            <div class="span3">
+                <!-- TODO: Госпаде, чем я тут занимаюсь... я хочу домой, к Юлечке :'((( -->
+                <div class="infoBox">
+                    <p class="infoLabel"><i class="icon-info-sign"></i> Candidate in projectss</p>
+                    <div>
+                    <div ng-repeat="project in candidate.Projects">
+                        <div style="float:left"><b><a href="#/projects/info/{{project.Id}}">{{project.Name}}</a></b></div>
+                        <div style="float:right">{{project.JobDescription}}</div><br clear="both" />
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 </div>
