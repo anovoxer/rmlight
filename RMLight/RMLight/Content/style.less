@@ -160,3 +160,92 @@ body {
     }
 }
 
+.publishingsCardList {
+  abbr {
+    border: none;
+  }
+
+  li {
+    display: block;
+    position: relative;
+    padding-left: 28px;
+    padding-right: 4px;
+    border-bottom: 1px solid @grayLighter;
+    margin-bottom: 1px;
+    color: @grayLight;
+
+    > i {
+      position: absolute;
+      line-height: 38px;
+      font-size: 18px;
+      margin-left: -27px;
+    }
+
+    span {
+      font-size: 12px;
+      &.dates {
+        display: block;
+      }
+    }
+
+
+
+  }
+}
+
+.dashBoardBox {
+  border: 1px solid @grayLighter;
+  background-color: #F7F7F7;
+
+  .handle {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0;
+    padding: 5px 10px 5px;
+    font-weight: normal;
+    .gradientBar(@tableHeaderBackgroundHighlight, @tableHeaderBackground, @grayDark, none);
+    border-bottom: 1px solid #DFDFDF;
+  }
+
+  .inside {
+    padding: 10px;
+
+    h4 {
+      color: @grayLight;
+      font-weight: normal;
+      border-bottom: 1px solid @grayLighter;
+      font-size: 14px;
+      padding-bottom: 5px;
+      margin: 5px 0;
+    }
+
+    .span3 { width: 45%; }
+
+    .dlDashBoardLarge {
+      font-size: 12px;
+      color: @infoText;
+      dt {
+        width: 70px;
+        font-size: 12px;
+      }
+
+      dd {
+        margin-left: 80px;
+      }
+    }
+
+    .dlDashBoardSmall {
+      font-size: 12px;
+      color: @infoText;
+      dt {
+        width: 25px;
+        font-size: 14px;
+      }
+
+      dd {
+        margin-left: 35px;
+      }
+    }
+  }
+}
+
