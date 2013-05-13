@@ -757,7 +757,6 @@ hr {
 abbr[title],
 abbr[data-original-title] {
   cursor: help;
-  border-bottom: 1px dotted #999999;
 }
 abbr.initialism {
   font-size: 90%;
@@ -2003,6 +2002,22 @@ table th[class*="span"],
 .mainTable tbody tr td .secondary {
   font-size: 85%;
   color: #999999;
+}
+.secondaryTable {
+  font-size: 12px;
+  border: 1px solid #dddddd;
+}
+.secondaryTable td,
+.secondaryTable th {
+  line-height: 14px;
+}
+.secondaryTable td.cellName,
+.secondaryTable th.cellName {
+  width: 45%;
+}
+.secondaryTable td a,
+.secondaryTable th a {
+  font-weight: bold;
 }
 [class^="icon-"],
 [class*=" icon-"] {
@@ -7328,7 +7343,7 @@ body {
   padding-right: 4px;
   border-bottom: 1px solid #eeeeee;
   margin-bottom: 1px;
-  color: #999999;
+  color: #555555;
 }
 .publishingsCardList li > i {
   position: absolute;

@@ -47,9 +47,28 @@
                 <h3>Files</h3>
 
                 <h3>Education</h3>
-
-                <h3>Projects</h3>
                 -->
+                <br>
+                <h3>Projects</h3>
+                <!-- TODO: Нет, ну если так сильно хочешь - то едь конечно! ;) -->
+                <table class="secondaryTable table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th class="cellName">Project</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="project in candidate.Projects">
+                            <td>{{project.Id}}</td>
+                            <td class="cellName"><a href="#/projects/info/{{project.Id}}">{{project.Name}}</a></td>
+                            <td>new</td>
+                            <td><abbr title="2013.11.08 3:28:44 PM">2013.11.08</abbr></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div class="span3">
@@ -65,22 +84,6 @@
                     </dl>
                 </div>
             </div>
-
-            <div class="span3">
-                <!-- TODO: Госпаде, чем я тут занимаюсь... я хочу домой, к Юлечке :'((( -->
-                <div class="infoBox">
-                    <p class="infoLabel"><i class="icon-info-sign"></i> Candidate in projectss</p>
-                    <div>
-                    <div ng-repeat="project in candidate.Projects">
-                        <div style="float:left"><b><a href="#/projects/info/{{project.Id}}">{{project.Name}}</a></b></div>
-                        <div style="float:right">{{project.JobDescription}}</div><br clear="both" />
-                    </div>
-                    </div>
-                </div>
-            </div>
-
-
-
         </div>
     </div>
 </div>
