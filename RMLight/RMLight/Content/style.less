@@ -177,8 +177,9 @@ body {
     > i {
       position: absolute;
       line-height: 38px;
-      font-size: 18px;
+      font-size: 16px;
       margin-left: -27px;
+      color: #BDBDBD;
     }
 
     span {
@@ -196,9 +197,10 @@ body {
 .dashBoardBox {
   border: 1px solid @grayLighter;
   background-color: #F7F7F7;
+  font-family: Georgia,"Times New Roman","Bitstream Charter",Times,serif;
 
   .handle {
-    font-size: 16px;
+    font-size: 15px;
     line-height: 18px;
     margin: 0;
     padding: 5px 10px 5px;
@@ -209,41 +211,63 @@ body {
 
   .inside {
     padding: 10px;
+    font-size: 14px;
 
-    h4 {
-      color: @grayLight;
+    h3, h4 {
+      font-size: 18px;
+      color: @gray;
       font-weight: normal;
       border-bottom: 1px solid @grayLighter;
-      font-size: 14px;
-      padding-bottom: 5px;
-      margin: 5px 0;
+      padding-left: 5px;
+      line-height: 28px;
+
     }
 
     .span3 { width: 45%; }
 
-    .dlDashBoardLarge {
-      font-size: 12px;
-      color: @infoText;
-      dt {
-        width: 70px;
-        font-size: 12px;
-      }
+    .span4 { width: 45%; }
 
-      dd {
-        margin-left: 80px;
-      }
+    dd, dt {
+      line-height: 30px;
+
+    }
+
+    .dlDashBoardLarge {
+      color: @infoText;
+      dt { width: 80px; }
+      dd { margin-left: 90px; }
     }
 
     .dlDashBoardSmall {
-      font-size: 12px;
       color: @infoText;
-      dt {
-        width: 25px;
-        font-size: 14px;
+      dt { width: 25px; }
+      dd { margin-left: 35px; }
+    }
+
+    .newsBox {
+      li {margin-bottom: 20px;}
+      .newsDate {
+        font-size: 12px;
+        color: @grayLight;
       }
 
-      dd {
-        margin-left: 35px;
+      .newsSummary {
+        font-size: 13px;
+      }
+    }
+
+    .dashLetters {
+      li {
+        margin-bottom: 10px;
+        border-bottom: 1px solid @grayLighter;
+      }
+      .date {
+        color: @grayLight;
+        font-size: 12px;
+      }
+
+      .msgContent {
+        font-size: 13px;
       }
     }
   }
