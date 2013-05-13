@@ -29,14 +29,40 @@
         </ul>
     </div>
     <div class="span10" ng-controller="CandidateListCtrl">
-        <table class="mainTable table table-striped table-bordered table-hover">
+        <table class="mainTable table table-striped table-hover">
             <thead>
-            <tr><th class="cellCheckBox"></th><th>id</th><th>name</th></tr>
+            <tr>
+                <th class="cellCheckBox"><input type="checkbox"></th>
+                <th>Id</th>
+                <th>Candidate</th>
+                <th>Source</th>
+                <th class=""><i class="icon-tags"></i></th>
+                <th class="" title="Added to projects"><i class="icon-tasks"></i></th>
+                <th class="cellDate">Date</th>
+            </tr>
             </thead>
             <tr ng-repeat="candidate in list">
                 <td class="cellCheckBox"><input type="checkbox" ng-model="candidate.selected"></td>
-                <td>{{candidate.Id}}</td>
-                <td><a href="#/candidates/{{candidate.Id}}">{{candidate.Name}} {{candidate.Lastname}}</a></td>
+                <td class="cellId">{{candidate.Id}}</td>
+                <td class="cellName">
+                    <a href="#/candidates/{{candidate.Id}}">{{candidate.Name}} {{candidate.Lastname}}</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#/candidates/{{candidate.Id}}/edit">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="addto"><a href="#">add to project</a></span>
+                        |
+                        <span class="remove"><a href="#">delete</a></span>
+                    </div>
+                </td>
+                <td>manual</td>
+                <td>0</td>
+                <td><a href="#">1</a></td>
+                <td class="cellDate">
+                    <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
+                    <br/><span class="secondary">Created</span>
+                </td>
             </tr>
         </table>
     </div>

@@ -24,14 +24,14 @@
                     </div>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-user"></i></span>
-                        <input type="text" class="input-small" placeholder="First name..." required>
-                        <input type="text" class="input-small" placeholder="Last name..." required>
+                        <input type="text" class="input-small" placeholder="First name..." required ng-model="model.Name">
+                        <input type="text" class="input-small" placeholder="Last name..." required ng-model="model.Lastname">
                     </div>
 
                     <h3>Basic</h3>
                     <div class="input-prepend">
                         <label for="email" class="add-on"><i class="icon-envelope"></i></label>
-                        <input id="email" type="email" placeholder="email..." required>
+                        <input id="email" type="email" placeholder="email..." required ng-model="model.Email">
                     </div>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-calendar"></i></span>
@@ -39,16 +39,16 @@
                     </div>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-map-marker"></i></span>
-                        <input type="text" placeholder="Address...">
+                        <input type="text" placeholder="Address..." ng-model="model.Address">
                     </div>
                     <div class="input-prepend">
                         <span class="add-on"><i class="icon-phone"></i></span>
-                        <input type="text" placeholder="Phone number...">
+                        <input type="text" placeholder="Phone number..." ng-model="model.Phone">
                     </div>
 
                     <div class="form-actions">
-                        <button type="submit" class="btn btn-success">Save</button>
-                        <button type="button" class="btn">Cancel</button>
+                        <button type="submit" class="btn btn-success" ng-click="Save();">Save</button>
+                        <button type="button" class="btn" ng-click="Cancel();">Cancel</button>
                     </div>
                 </form>
             </div>

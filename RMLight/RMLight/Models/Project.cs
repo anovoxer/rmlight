@@ -13,5 +13,7 @@ namespace RMLight.Models
         public string JobDescription { get; set; }
         public int Area { get; set; }
         public int Category { get; set; }
+
+        public List<Application> Applicants { get; set; }
     }
 }

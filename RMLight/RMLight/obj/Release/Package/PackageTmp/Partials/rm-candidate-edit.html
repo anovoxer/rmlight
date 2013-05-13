@@ -4,6 +4,7 @@
     <div class="span2"></div>
 
     <div class="span7">
+        <!-- TODO: @Taras: I think buttons shold be disabled but not hidden if id < 0...  -->
         <div class="btn-group" ng-show="candidate.Id > 0">
             <button type="button" class="btn"><i class="icon-cogs"></i></button>
                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" ng-click="PopulateProjects();"><i class="icon-share"></i> Apply to</button>
@@ -30,9 +31,9 @@
     </div>
     <div class="span10 profileBox">
         <div class="row">
-            <div class="span10 candidateData">
+            <div class="span7 candidateData">
                 <form>
-                <div class="thumbnail left">
+                <div class="thumbnail right">
                     <img src="images/jaro.png">
                 </div>
                 <div class="input-prepend">

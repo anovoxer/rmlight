@@ -173,6 +173,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\CandidateController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -187,8 +188,13 @@
     <Compile Include="Migrations\201303131456508_InitialCreate.Designer.cs">
       <DependentUpon>201303131456508_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201305121129309_AddApplicationForm.cs" />
+    <Compile Include="Migrations\201305121129309_AddApplicationForm.Designer.cs">
+      <DependentUpon>201305121129309_AddApplicationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Candidate.cs" />
+    <Compile Include="Models\Application.cs" />
     <Compile Include="Models\StateInfo.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -203,8 +209,11 @@
     <Content Include="Content\bootstrap-responsive.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font\fontawesome-webfont.svg" />
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\images\ReachMeeBox.gif" />
+    <Content Include="Content\style.css" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -262,6 +271,7 @@
     <Content Include="Content\toastr.min.css" />
     <Content Include="admin.html" />
     <Content Include="hi.html" />
+    <Content Include="Images\jaro.png" />
     <Content Include="index_old.html" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -489,6 +499,10 @@
     <Content Include="Scripts\i18n\angular-locale_zh-tw.js" />
     <Content Include="Scripts\i18n\angular-locale_zh.js" />
     <Content Include="JS\items.json" />
+    <Content Include="Content\font\fontawesome-webfont.eot" />
+    <Content Include="Content\font\fontawesome-webfont.ttf" />
+    <Content Include="Content\font\fontawesome-webfont.woff" />
+    <Content Include="Content\font\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\Anovoxer-6.hosting.parking.ru - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\anovoxer-server.pubxml" />
     <None Include="Properties\PublishProfiles\FTP.pubxml" />
@@ -554,6 +568,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201303131456508_InitialCreate.resx">
       <DependentUpon>201303131456508_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201305121129309_AddApplicationForm.resx">
+      <DependentUpon>201305121129309_AddApplicationForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

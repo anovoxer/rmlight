@@ -20,6 +20,51 @@
         <!-- template located under: /partials/ui-elements/t-menu-project -->
     </div>
 
+
+    <div class="span10">
+        <table class="mainTable table table-striped table-hover">
+            <thead>
+            <tr>
+                <td class="cellCheckBox"><input type="checkbox"></th>
+                    <th class="cellId">Id</th>
+                    <th class="cellName">Candidate</th>
+                    <th class="">Source</th>
+                    <th class="">Status</th>
+                    <th class=""><i class="icon-tags"></i></th>
+                    <th class="cellDate">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="applicant in list" id="_i_{{applicant.Id}}">
+                <td class="cellCheckBox"><input type="checkbox"></td>
+                <td class="cellId">{{applicant.Id}}</td>
+                <td class="cellName">
+                    <a href="#/projects/{{projectId}}/candidates/{{applicant.Id}}">{{applicant.Name}} {{applicant.Lastname}}</a>
+                    <div class="rowActions">
+                        <span class="edit"><a href="#">edit</a></span>
+                        |
+                        <span class="note"><a href="#">add note</a></span>
+                        |
+                        <span class="remove"><a ng-click="remove(this);">remove</a></span>
+                    </div>
+                </td>
+                <td>{{applicant.Sate}}</td>
+                <td>
+                    new
+                    <br/><abbr class="secondary" title="{{applicant.Created}}">{{applicant.Created}}</abbr>
+                </td>
+                <td>0</td>
+                <td class="cellDate">
+                    <abbr title="{{applicant.Created}}">{{applicant.Created}}</abbr>
+                    <br/><span class="secondary">Arrived</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
     <div class="span10">
         <table class="mainTable table table-striped table-hover">
             <thead>

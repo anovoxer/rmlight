@@ -26,5 +26,7 @@ namespace RMLight.Models
         public DbSet<Customer> Customers { get; set; }
 
         public DbSet<User> Users { get; set; }
+
+        public DbSet<Application> Applications { get; set; }
     }
 }

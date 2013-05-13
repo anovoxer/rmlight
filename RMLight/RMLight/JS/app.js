@@ -7,14 +7,16 @@ var pages = {
     projectdash: { name: "dashboard", url: "#/projects/dashboard/:projectid" },
     projectpublish: { name: "publishing", url: "#/projects/publishing/:projectid" },
     projectprocedure: { name: "procedure", url: "#/projects/procedure/:projectid" },
-    projectcandidates: { name: "candidates", url: "#/projects/candidates/:projectid" },
+    projectcandidates: { name: "applications", url: "#/projects/:projectid/candidates" },
+    projectapplicationinfo: { name: "application", url: "#/projects/:projectid/candidates/:candidateid" }
 };
 
 var paths = {
     projects: [pages.home, pages.projects],
     projectsinfo: [pages.home, pages.projects, pages.projectinfo],
     projectdash: [pages.home, pages.projects, pages.projectinfo, pages.projectdash],
-    projectcandidates: [pages.home, pages.projects, pages.projectinfo, pages.projectcandidates]
+    projectcandidates: [pages.home, pages.projects, pages.projectinfo, pages.projectcandidates],
+    projectapplicationinfo: [pages.home, pages.projects, pages.projectinfo, pages.projectcandidates, pages.projectapplicationinfo]
 };
 
 //var app = angular.module("ReachmeeLightApp", ['ngResource', 'components']);
@@ -35,6 +37,9 @@ app.config(['$routeProvider', function ($routeProvider) {
           when('/projects/info/:projectid/edit', { templateUrl: 'partials/rm-project-info-edit.html', controller: ProjectInfoCtrl, bread: paths.projectsinfo }).
           when('/projects/procedure/:projectid', { templateUrl: 'partials/rm-project-procedure.html', controller: null }).
           when('/projects/publishing/:projectid', { templateUrl: 'partials/rm-project-publishing.html', controller: null }).
+          when('/projects/:projectid/candidates', { templateUrl: 'partials/rm-project-candidates.html', controller: ApplicationListCtrl, bread: paths.projectcandidates }).
+          when('/projects/:projectid/candidates/:applicationid', { templateUrl: 'partials/rm-project-candidate.html', controller: ApplicationInfoCtrl, bread: paths.projectapplicationinfo }).
+          when('/projects/:projectid/candidates/:applicationid/edit', { templateUrl: 'partials/rm-project-candidate-add.html', controller: ApplicationInfoCtrl, bread: paths.projectapplicationinfo }).
 
           //when('/project/create', { templateUrl: 'partials/rm-project.html',  param:{projectid:1}, controller: ProjectCreateCtrl }).
           when('/candidates', { templateUrl: 'partials/rm-candidates.html', controller: null }).
@@ -57,11 +62,18 @@ app.factory('Menu', function ($resource) {
 });
 
 app.factory('CandidateDATA', function ($resource) {
-    return $resource('/api/candidate/:id', { id: '@id' }, { update: { method: 'PUT' } });
+    return $resource('/api/candidate/:id', { id: '@id' },
+            { update: { method: 'PUT' },
+            createapp: { method: 'POST', params: { candidateId: '@candidateId', projectId: '@projectId' }, isArray: true } 
+            });
 });
 
 app.factory('ProjectDATA', function ($resource) {
     return $resource('/api/project/:id', { id: '@id' }, { update: { method: 'PUT' }, getpagecount: { method: 'GET', params: { returncount: true }, isArray: false } });
+});
+
+app.factory('ApplicationDATA', function ($resource) {
+    return $resource('/api/application/:id', { id: '@id' }, { update: { method: 'PUT' }, getpagecount: { method: 'GET', params: { returncount: true }, isArray: false } });
 });
 
 app.factory('WorkflowDATA', function ($resource) {
@@ -143,7 +155,9 @@ function CandidateInfoCtrl($scope, $route, $routeParams, $location, CandidateDAT
     };
 
     $scope.ApplyCandidateToPorject = function (projectId) {
-        alert(projectId);
+        CandidateDATA.createapp({ candidateId: $scope.candidate.Id, projectId: projectId }, function (info) {
+            toastr.success('Candidate ' + $scope.candidate.Name + ' ' + $scope.candidate.LastName + ' application was added to project.');
+        });
     };
 };
 
@@ -209,6 +223,77 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
         $scope.search(false);
     });
 };
+
+
+function ApplicationListCtrl($scope, $route, $routeParams, ApplicationDATA) {
+
+    $scope.projectId = $routeParams.projectid;
+
+    $scope.filter = {
+        q: '',
+        projectId: $routeParams.projectid
+    };
+
+    $scope.search = function () {
+        $scope.list = ApplicationDATA.query($scope.filter);
+    }
+
+    $scope.search();
+
+    $scope.remove = function (info) {
+       // alert(info.applicant.Id);
+        ApplicationDATA.delete({ id: info.applicant.Id }, function () {
+            $("#_i_" + info.applicant.Id).fadeOut(function () { $scope.search(); });
+        });
+        
+        //var itemId = this.project.Id;
+        //ProjectDATA.delete({ id: itemId }, function () {
+        //    
+        //});
+    }
+};
+
+function ApplicationInfoCtrl($scope, $route, $routeParams, $location, ApplicationDATA) {
+    var id = $routeParams.applicationid;
+
+    $scope.projectId = $routeParams.projectid;
+    $scope.applicationId = $routeParams.applicationid;
+
+    $scope.model = id == 0 ? {} : ApplicationDATA.get({ id: id }, function (data) { /**/ });
+
+    $scope.Save = function () {
+        if (id == 0) {
+            ApplicationDATA.save($scope.model, function (info) {
+                $location.path("/projects/" + $scope.projectId + "/candidates/" + $scope.applicationId);
+                toastr.success('Application ' + info.Name + ' created.')
+            });
+        } else {
+            ApplicationDATA.update({ id: id }, $scope.model, function (info) {
+                $location.path("/projects/" + $scope.projectId + "/candidates/" + $scope.applicationId);
+                toastr.success('Application ' + info.Name + ' saved.')
+            });
+        }
+    };
+
+    $scope.Cancel = function () {
+        $location.path("/projects/" + $scope.projectId + "/candidates/" + $scope.applicationId);
+    };
+
+    $scope.Delete = function () {
+        var confirm = window.confirm("Remove project information?");
+        if (confirm) {
+            ProjectDATA.delete({ id: $scope.model.Id }, function (info) {
+                $location.path("/projects");
+                toastr.success('Project ' + info.Name + ' was removed from system.');
+            });
+        };
+    };
+
+};
+
+
+
+
 
 function ProjectInfoCtrl($scope, $route, $routeParams, $location, ProjectDATA, DataContainer) {
     var id = $routeParams.projectid;
