@@ -26,7 +26,7 @@ namespace RMLight.Controllers
         {
             var list = ((IObjectContextAdapter)db).ObjectContext.CreateObjectSet<Project>();
 
-            IQueryable<Project> items = list;//string.IsNullOrEmpty(sort) ? list.OrderBy(o => o.Id) : list.OrderBy(String.Format("it.{0} {1}", sort, desc ? "DESC" : "ASC"));
+            IQueryable<Project> items = list; //string.IsNullOrEmpty(sort) ? list.OrderBy(o => o.Id) : list.OrderBy(String.Format("it.{0} {1}", sort, desc ? "DESC" : "ASC"));
             if (!string.IsNullOrEmpty(q) && q != "undefined") items = items.Where(t => t.Name.Contains(q) || t.JobDescription.Contains(q) || t.Header.Contains(q));
 
             return new { Count = Math.Ceiling(items.Count() / ((decimal)(limit ?? 100))) };

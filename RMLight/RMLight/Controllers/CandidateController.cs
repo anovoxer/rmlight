@@ -16,6 +16,48 @@ namespace RMLight.Controllers
     {
         private RMLightContext db = new RMLightContext();
 
+        public HttpResponseMessage CreateApplication(int candidateId, int projectId)
+        {
+            Candidate candidate = db.Candidates.Find(candidateId);
+            if (candidate == null)
+            {
+                return Request.CreateResponse(HttpStatusCode.NotFound);
+            }
+
+            Application a = new Application()
+            {
+                Name = candidate.Name,
+                Lastname = candidate.Lastname,
+                Birthday = candidate.Birthday,
+                Address = candidate.Address,
+                Phone = candidate.Phone,
+                Rating = candidate.Rating,
+                Userpic = candidate.Userpic,
+
+                ProjectId = projectId,
+                CandidateId = candidate.Id,
+
+                CustomerId = candidate.CustomerId,
+                Created = DateTime.Now,
+                Status = 1 // TODO: defined statuses and workflow for statuses.
+            };
+
+            try
+            {
+
+                db.Applications.Add(a);
+                db.SaveChanges();
+
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, a);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = a.Id }));
+                return response;
+            }
+            catch
+            {
+                return Request.CreateResponse(HttpStatusCode.BadRequest);
+            }
+        }
+
         // GET api/Candidate
         public IEnumerable<Candidate> GetCandidates()
         {

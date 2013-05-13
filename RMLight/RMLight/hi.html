@@ -108,6 +108,7 @@
                 if (!$scope.form.$valid || $scope.Validation.nameinuse) { return; }
 
                 CustomerDATA.save($scope.model, function (info) {
+                    if (info.Id > 0) { window.location = "/index.html"; }
                 });
             };
         }
@@ -206,7 +207,7 @@
                             <label class="checkbox"><input type="checkbox" required="">Agree with terms&conditions</label>
                             <div><span class="text-error" ng-show='model.Password != "" && confirmpassword != "" && form.confirmpassword.$error.validator'>Passwords do not match!</span><br />
                                 <br />{{form.$valid}}</div>
-                            <button class="btn btn-success">Registrate</button>
+                            <button class="btn btn-success" ng-click="Create();">Registrate</button>
                         </form>
                     </section>
                 </div>

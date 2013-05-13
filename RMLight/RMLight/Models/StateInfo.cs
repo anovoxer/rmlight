@@ -8,6 +8,7 @@ namespace RMLight.Models
     public class StateInfo
     {
         public DateTime? Created { get; set; }
+        public DateTime? Update { get; set; }
         public int OwnerId { get; set; }
         public int State { get; set; }
         public int CustomerId { get; set; }
