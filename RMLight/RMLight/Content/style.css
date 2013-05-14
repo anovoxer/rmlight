@@ -7445,3 +7445,15 @@ body {
 .dashBoardBox .inside .dashLetters .msgContent {
   font-size: 13px;
 }
+#footer {
+  padding: 50px 0 30px;
+  margin-top: 70px;
+  border-top: 1px solid #DFDFDF;
+  text-align: center;
+  background-color: #F7F7F7;
+  color: #929292;
+}
+#footer .copyright {
+  margin-top: 50px;
+  font-size: 12px;
+}
