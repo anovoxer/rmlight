@@ -169,13 +169,7 @@ function ProjectListCtrl($scope, $route, $routeParams, ProjectDATA) {
     $scope.grid = { columns: [{ "Name": "", "Type": "cellCheckBox" }, { "Name": "Id", "Type": "cellId" }, { "Name": "Name", "Type": "cellName" }, { "Name": "Published", "Type": "cellNumber" }, { "Name": "Candidates", "Type": "cellNumber" }] };
 
 
-    $scope.filter = {
-        q: '',
-        sort: 'Id',
-        desc: true,
-        limit: 10,
-        offset: 0
-    };
+    $scope.filter = { sort: 'Id', desc: true, limit: 2, offset: 0 };
 
     $scope.applyfilter = function (filter) {
         $scope.filter = filter;

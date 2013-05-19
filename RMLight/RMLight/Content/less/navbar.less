@@ -50,12 +50,16 @@
   float: left;
   display: block;
   // Vertically center the text given @navbarHeight
-  padding: ((@navbarHeight - @baseLineHeight) / 2) 20px ((@navbarHeight - @baseLineHeight) / 2);
+  padding: 11px 20px 9px;
   margin-left: -20px; // negative indent to left-align the text down the page
   font-size: 20px;
   font-weight: 200;
   color: @navbarBrandColor;
-  text-shadow: 0 1px 0 @navbarBackgroundHighlight;
+  background-image: url('images/ball.png');
+  background-repeat: no-repeat;
+  background-position:99% 6px;
+  background-size: 16%;
+  // text-shadow: 0 1px 0 @navbarBackgroundHighlight;
   &:hover,
   &:focus {
     text-decoration: none;
@@ -245,7 +249,7 @@
   padding: ((@navbarHeight - @baseLineHeight) / 2) 15px ((@navbarHeight - @baseLineHeight) / 2);
   color: @navbarLinkColor;
   text-decoration: none;
-  text-shadow: 0 1px 0 @navbarBackgroundHighlight;
+//  text-shadow: 0 1px 0 @navbarBackgroundHighlight;
 }
 .navbar .nav .dropdown-toggle .caret {
   margin-top: 8px;
@@ -265,7 +269,7 @@
 .navbar .nav > .active > a:focus {
   color: @navbarLinkColorActive;
   text-decoration: none;
-  background-color: @navbarLinkBackgroundActive;
+//  background-color: @navbarLinkBackgroundActive;
   .box-shadow(inset 0 3px 8px rgba(0,0,0,.125));
 }
 
@@ -349,7 +353,7 @@
 .navbar .nav li.dropdown.open > .dropdown-toggle,
 .navbar .nav li.dropdown.active > .dropdown-toggle,
 .navbar .nav li.dropdown.open.active > .dropdown-toggle {
-  background-color: @navbarLinkBackgroundActive;
+//  background-color: @navbarLinkBackgroundActive;
   color: @navbarLinkColorActive;
 }
 .navbar .nav li.dropdown > .dropdown-toggle .caret {
@@ -393,13 +397,13 @@
 
   .navbar-inner {
     #gradient > .vertical(@navbarInverseBackgroundHighlight, @navbarInverseBackground);
-    border-color: @navbarInverseBorder;
+   // border-color: @navbarInverseBorder;
   }
 
   .brand,
   .nav > li > a {
     color: @navbarInverseLinkColor;
-    text-shadow: 0 -1px 0 rgba(0,0,0,.25);
+    // text-shadow: 0 -1px 0 rgba(0,0,0,.25);
     &:hover,
     &:focus {
       color: @navbarInverseLinkColorHover;
@@ -416,7 +420,7 @@
 
   .nav > li > a:focus,
   .nav > li > a:hover {
-    background-color: @navbarInverseLinkBackgroundHover;
+  //  background-color: @navbarInverseLinkBackgroundHover;
     color: @navbarInverseLinkColorHover;
   }
 
@@ -424,7 +428,7 @@
   .nav .active > a:hover,
   .nav .active > a:focus {
     color: @navbarInverseLinkColorActive;
-    background-color: @navbarInverseLinkBackgroundActive;
+    // background-color: @navbarInverseLinkBackgroundActive;
   }
 
   // Inline text links
@@ -446,7 +450,7 @@
   .nav li.dropdown.open > .dropdown-toggle,
   .nav li.dropdown.active > .dropdown-toggle,
   .nav li.dropdown.open.active > .dropdown-toggle {
-    background-color: @navbarInverseLinkBackgroundActive;
+//    background-color: @navbarInverseLinkBackgroundActive;
     color: @navbarInverseLinkColorActive;
   }
   .nav li.dropdown > a:hover .caret,
@@ -480,7 +484,7 @@
       &.focused {
         padding: 5px 15px;
         color: @grayDark;
-        text-shadow: 0 1px 0 @white;
+       // text-shadow: 0 1px 0 @white;
         background-color: @navbarInverseSearchBackgroundFocus;
         border: 0;
         .box-shadow(0 0 3px rgba(0,0,0,.15));

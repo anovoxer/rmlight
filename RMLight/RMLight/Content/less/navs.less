@@ -112,6 +112,8 @@
 // Give the tabs something to sit on
 .nav-tabs {
   border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
+  float: right;
 }
 // Make the list-items overlay the bottom border
 .nav-tabs > li {
@@ -425,14 +427,15 @@
 
     a {
       display: block;
-      padding: 10px 2px;
+      padding: 4px 2px;
       color: @textColor;
 
       &:hover {
-        color: @linkColor;
+        color: @rmOrange;
         padding-right: 0;
-        border-right: 2px solid @linkColor;
+        border-right: 2px solid @rmOrange;
         background-color: transparent;
+        text-decoration: none;
       }
 
       span {
@@ -444,9 +447,9 @@
     }
 
     &.active a {
-      color: @linkColor;
+      color: @rmOrange;
       padding-right: 0;
-      border-right: 2px solid @linkColor;
+      border-right: 2px solid @rmOrange;
     }
 
     &.nav-header {

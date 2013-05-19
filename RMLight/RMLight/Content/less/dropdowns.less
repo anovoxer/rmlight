@@ -80,7 +80,11 @@
     line-height: @baseLineHeight;
     color: @dropdownLinkColor;
     white-space: nowrap;
+    background-color: @white;
   }
+
+
+
 }
 
 // Hover/Focus state
@@ -90,8 +94,9 @@
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
   text-decoration: none;
-  color: @dropdownLinkColorHover;
-  #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+  color: @navbarInverseLinkColorHover;
+  // #gradient > .vertical(@dropdownLinkBackgroundHover, darken(@dropdownLinkBackgroundHover, 5%));
+   background-color: @white;
 }
 
 // Active state
@@ -99,10 +104,11 @@
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  color: @dropdownLinkColorActive;
+  color: @navbarInverseLinkColorHover;
   text-decoration: none;
   outline: 0;
-  #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
+  background-color: @white;
+//  #gradient > .vertical(@dropdownLinkBackgroundActive, darken(@dropdownLinkBackgroundActive, 5%));
 }
 
 // Disabled state

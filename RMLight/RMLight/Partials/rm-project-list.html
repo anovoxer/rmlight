@@ -1,4 +1,23 @@
-﻿<div class="row" id="funcMenu">
+﻿<div class="row">
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li class="active">My projects <span class="divider">/</span></li>
+            <li class="active">Personal</li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="span9 pageHeader">
+        <h2>Projects</h2>
+    </div>
+
+    <div class="span3">
+        <pagination on-select-page="setPage" num-pages="pagesCount" current-page="currentPage" class="pagination pagination-right" first-text="&laquo;" last-text="&raquo;" max-size="4" boundary-links="false" direction-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
+    </div>
+</div>
+
+<!--
+<div class="row" id="funcMenu">
     <div class="span2">
         <a class="btn btn-block btn-primary" href="#/projects/info/0/edit">Create project</a>
     </div>
@@ -11,19 +30,20 @@
         </div>
     </div>
 
-    <!-- TODO: 2Yaro: if you need change markup for paging, tell me, i'll do something for it. right now it is included into ui-bootstrap-tpls-....*.js. You still can change attributes in this tag. 
-    Or play with css to improve its outfit. Or call me. Or come to me with Wiskey :D -->
     <div class="span3">
     <pagination on-select-page="setPage" num-pages="pagesCount" current-page="currentPage" class="pagination pagination-right" first-text="&laquo;" last-text="&raquo;" max-size="4" boundary-links="false" direction-links="true" previous-text="&lsaquo;" next-text="&rsaquo;"></pagination>
     </div>
-
-    <!-- TODO: 2Yaro: just for debug. You could remove it: -->
-    <!-- pages: {{ pagesCount }} -->
 </div>
-
+-->
 <div class="row">
     <div class="span2 sideMenu">
         <filterbox apply="applyfilter(filtermessage)"></filterbox>
+        <ul class="nav nav-side">
+            <li class="nav-header">All projects</li>
+            <li><a href="#">in progress</a></li>
+            <li><a href="#">finished</a></li>
+            <li><a href="#">all</a></li>
+        </ul>
     </div>
 
 
@@ -31,33 +51,24 @@
         <table class="mainTable table table-striped table-hover">
             <thead>
                 <tr>
-                    <th ng-repeat="column in grid.columns" ng-class="column.Type">{{column.Name}}
-                    </th>
+                    <!-- <th ng-repeat="column in grid.columns" ng-class="column.Type">{{column.Name}}</th> -->
                     <!-- TODO: Hej is it somethig that should be moved to JS? -->
-                    <th class="cellDate">Date</th>
+                    <th>Id</th>
+                    <th class="cellName">Name</th>
+                    <th class="cellDate">Created</th>
+                    <th>Advert</th>
+                    <th class="cellNumber"><i class="icon-external-link"></i></th>
+                    <th class="cellNumber"><i class="icon-group"></i></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="project in list" id="item_{{project.Id}}">
-                    <td class="cellCheckBox">
-                        <input type="checkbox" ng-model="project.selected" ng-click="fmenu.init();"></td>
                     <td class="cellId">{{project.Id}}</td>
-                    <td class="cellName">
-                        <a href="#/projects/info/{{project.Id}}">{{project.Name}}</a>
-                        <div class="rowActions">
-                            <span class="edit"><a href="#">edit</a></span>
-                            |
-                            <span class="note"><a href="#">lock</a></span>
-                            |
-                            <span class="remove"><a href="#">delete</a></span>
-                        </div>
-                    </td>
-                    <td class="cellNumber"><a href="#">{{0}}</a></td>
+                    <td class="cellName"><a href="#/projects/info/{{project.Id}}">{{project.Name}}</a></td>
+                    <td class="cellDate"><abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr></td>
+                    <td><i class="icon-ok text-success"></i></td>
+                    <td class="cellNumber"><i class="icon-remove text-error"></i></td>
                     <td class="cellNumber"><a href="#/project/candidates/{{project.Id}}">{{3}}</a></td>
-                    <td class="cellDate">
-                        <abbr title="2013.02.12 6:34:33 AM">2013.02.12</abbr>
-                        <br/><span class="secondary">Created</span>
-                    </td>
                     <!--<td><a ng-click="delete()"><i class="icon-remove"></i></a></td>-->
                 </tr>
             </tbody>

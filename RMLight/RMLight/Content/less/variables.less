@@ -30,6 +30,11 @@
 @purple:                #7a43b6;
 
 
+// ReachMee Colors
+// ---------------
+@rmOrange:              #ff6600;
+
+
 // Scaffolding
 // -------------------------
 @bodyBackground:        @white;
@@ -78,8 +83,8 @@
 // Tables
 // -------------------------
 @tableBackground:                   transparent; // overall background-color
-@tableBackgroundAccent:             #f9f9f9; // for striping
-@tableBackgroundHover:              #f5f5f5; // for hover
+@tableBackgroundAccent:             #F6FAFF; // for striping
+@tableBackgroundHover:              #DFEDFF; // for hover
 @tableBorder:                       #ddd; // table and cell border
 
 @tableHeaderBackground:             #ECECEC;
@@ -198,16 +203,16 @@
 @navbarBrandColor:                @navbarLinkColor;
 
 // Inverted navbar
-@navbarInverseBackground:                #111111;
-@navbarInverseBackgroundHighlight:       #222222;
-@navbarInverseBorder:                    #252525;
+@navbarInverseBackground:                #DFEDFF;
+@navbarInverseBackgroundHighlight:       #F6FAFF;
+@navbarInverseBorder:                    #F6FAFF;
 
 @navbarInverseText:                      @grayLight;
-@navbarInverseLinkColor:                 @grayLight;
-@navbarInverseLinkColorHover:            @white;
+@navbarInverseLinkColor:                 @gray;
+@navbarInverseLinkColorHover:            #ff6600;
 @navbarInverseLinkColorActive:           @navbarInverseLinkColorHover;
 @navbarInverseLinkBackgroundHover:       transparent;
-@navbarInverseLinkBackgroundActive:      @navbarInverseBackground;
+@navbarInverseLinkBackgroundActive:      darken(@navbarInverseBackgroundHighlight, 5%);
 
 @navbarInverseSearchBackground:          lighten(@navbarInverseBackground, 25%);
 @navbarInverseSearchBackgroundFocus:     @white;
@@ -221,7 +226,7 @@
 // -------------------------
 @paginationBackground:                #fff;
 @paginationBorder:                    #ddd;
-@paginationActiveBackground:          @linkColor;
+@paginationActiveBackground:          @orange;
 
 
 // Hero unit

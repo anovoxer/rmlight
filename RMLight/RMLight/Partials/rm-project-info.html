@@ -1,54 +1,92 @@
-﻿<div class="row" id="funcMenu">
-    <div class="span2"></div>
-    <div class="span7">
-        <div class="btn-group">
-            <button class="btn"><i class="icon-cogs"></i></button>
-            <button class="btn"><i class="icon-plus"></i> Candidate</button>
-            <button class="btn"><i class="icon-lock"></i> Lock</button>
-            <button class="btn" ng-click="Delete();"><i class="icon-trash"></i> Remove</button>
-        </div>
+﻿<div class="row">
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="#projects">My projects</a> <span class="divider">/</span></li>
+            <li class="active">project name <span class="divider">/</span></li>
+            <li class="active">description</li>
+        </ul>
     </div>
-    <div class="span3"></div>
 </div>
 
 <div class="row">
+    <div class="span5 pageHeader"><h2>{{model.Name}}</h2></div>
+    <div class="span7"><projectmenu /></div>
+</div>
+
+
+<div class="row">
     <div class="span2">
-        <projectmenu />
+        <ul class="nav-side">
+            <li class="active"><a href="#">background <span><i class="icon-info-sign"></i></span></a></li>
+            <li><a href="#">assessments <span><i class="icon-check"></i></span></a></li>
+            <li><a href="#">result <span><i class="icon-bar-chart"></i></span></a></li>
+        </ul>
         <!-- template located under: /partials/ui-elements/t-menu-project -->
     </div>
 
     <div class="span10" ng-controller="ProjectInfoCtrl">
-        <!-- TODO: 2Taras: edit link is here!! >>> -->
-        <!-- TODO: 2Taras: how to use data from project fields?! >>> -->
-        <h2 class="projectTitle">{{model.Name}} <small><a href="#/projects/info/{{model.Id}}/edit"><i class="icon-edit"></i> edit</a></small></h2>
         <div class="row">
-            <div class="span6 projectData">
-                <h3>Basic</h3>
-                <ul class="unstyled">
-                    <li>
-                        <p class="projectField">{{model.Header}}</p>
-                        <small> - job title. This is public field</small>
-                    </li>
-                    <li>
-                        <p class="projectField">{{model.JobDescription}}</p>
-                        <small> - job description. Few words about current project</small>
-                    </li>
-                </ul>
+            <div class="span7 projectData">
+                <form>
+                    <ul class="unstyled">
+                        <li>
+                            <input type="text" name="project_title" id="project_title" class="span6 projectField" placeholder="Title..." ng-model="model.Header" >
+                            <label for="project_title"> - job title. This is public field</label>
+                        </li>
+                        <li>
+                            <input type="text" name="project_number" id="project_number" class="span1 projectField">
+                            <label for="project_number"> - numbers</label>
+                        </li>
+                        <li>
+                            <textarea class="span6 projectField" name="project_desc" id="project_desc" rows="4" placeholder="Comments..." ng-model="model.JobDescription"></textarea>
+                            <label for="project_desc"> - comments. Few words about current project</label>
+                        </li>
+                        <li>
+                            <label class="checkbox"><input type="checkbox"> Do not send reminders about closing the project.</label>
+                            <label class="checkbox"><input type="checkbox"> Hide project in the list (only visible to the owner, project guests and system administrators)</label>
+                        </li>
+                    </ul>
 
-                <!-- TODO: lists should be connected to data model -->
-                <h3>Specialization</h3>
-                <ul class="unstyled">
-                    <li>
-                        <p class="projectField">IT area</p>
-                        <small> - area. Specify area for project</small>
-                    </li>
-                    <li>
-                        <p class="projectField">Head office workers</p>
-                        <small> - category</small>
-                    </li>
-                </ul>
+                    <!-- TODO: lists should be connected to data model -->
+                    <h3>Classification</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <select class="span4 projectField" name="project_position" id="project_position" >
+                                <option disabled selected>Select position...</option>
+                            </select>
+                            <label for="project_position"> - position. Specify area for project</label>
+                        </li>
+                        <li>
+                            <select class="span4 projectField" name="project_area" id="project_area">
+                                <option disabled selected>Select area...</option>
+                            </select>
+                            <label for="project_area">0 area. Specify work area for project</label>
+                        </li>
+                    </ul>
+
+                    <h3>Organization</h3>
+                    <ul class="unstyled">
+                        <li>
+                            <select class="span4 projectField" name="project_position" id="project_bunit" >
+                                <option disabled selected>Select...</option>
+                            </select>
+                            <label for="project_bunit"> - business unit.</label>
+                        </li>
+                        <li>
+                            <select class="span4 projectField disabled" disabled="disabled" name="project_position" id="project_unit" >
+                                <option disabled selected>Select...</option>
+                            </select>
+                            <label for="project_unit"> - unit.</label>
+                        </li>
+                    </ul>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success" ng-click="Save();">Save</button>
+                        <button type="button" class="btn" ng-click="Cancel();">Cancel</button>
+                    </div>
+                </form>
             </div>
-            <div class="span4">
+
+            <div class="span3">
                 <!-- TODO: info box should be connected to data model -->
                 <div class="infoBox">
                     <p class="infoLabel"><i class="icon-info-sign"></i> Project info</p>
@@ -57,9 +95,11 @@
                         <dd>open</dd>
                         <dt>created:</dt>
                         <!-- TODO: link's to user account -->
-                        <dd>2013-04-24 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        <dd>2013-04-24 <br/> <a href="#">Yaroslav Sivachenko</a></dd>
                         <dt>updated:</dt>
-                        <dd>2013-04-26 (<a href="#">Yaroslav Sivachenko</a>)</dd>
+                        <dd>2013-04-26 <br/> <a href="#">Yaroslav Sivachenko</a></dd>
+                        <dt>owner:</dt>
+                        <dd>Globesoft AB, <br/> <a href="#">Yaroslav Sivachenko</a>, <br/> 0709-134715 </dd>
                     </dl>
                 </div>
             </div>
